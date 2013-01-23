@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-css-playground'>
+		<html>
+			<title>test</title>
+				CODE
+			<body>
+				<h1>I'm a H1 heading</h1>
+				<h2>I'm a H2 heading</h2>
+				<p>Pargraph of text &lt;p&gt;</p>
+				<div class='stuff'>&lt;div&gt; with class "stuff"</div>
+				<div id='my-div'>&lt;div&gt; with id "my-div"</div>
+			</body>
+		</html>
+	</script>
+
+
+	<script type='text/coderdeck' id='coderdeck-style-example'>
+		<html>
+			<title>test</title>
+			<style>
+				CODE
+			</style>
+			<body>
+				<h1>I'm a H1 heading</h1>
+				<h2>I'm a H2 heading</h2>
+				<h3>Pargraph of text &lt;p&gt; here</p>
+				<div class='stuff'>I'm a div &lt;div&gt; with class "stuff"</div>
+				<div id='my-div'>I'm a &lt;div&gt; with id "my-div"</div>
+			</body>
+		</html>
+	</script> 	
+
+<article class='slide slide-subhead'>
+<h1>MassArt Web 2 </h1>
+
+<p>
+Advanced Web Projects<br/>
+<a href='http://cykod.github.com/Web2Spring2013/1.html'>http://cykod.github.com/Web2Spring2013/1.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+			<h3>Welcome - Who, What, How</h3>
+		</li>
+		<li class="slide">
+			<h3>Administrivia</h3>
+		</li>
+		<li class="slide">
+			<h3>HTML/CSS Review</h3>
+		</li>
+		<li class="slide">
+			<h3>GitHubbery</h3>
+		</li>
+		<li class="slide">
+    <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+<!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
+<article class='slide slide-list'>
+<h1>Course Requirements</h1>
+<ul>
+	<li class="slide">
+		<h3>You should have a good understanding of HTML</h3>
+	</li>
+	<li class="slide">
+		<h3>You should have a good understanding CSS</h3>
+	</li>
+	<li class="slide">
+		<h3>You should know basic CSS positioning and be able to do a basic chop</h3>
+	</li>
+	<li class="slide">
+		<h3>You need to be willing to put in the time on the projects and learn outside of class.</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Course Goals</h2>
+<ul>
+	<li class="slide">
+		<h3>Build in the basics you learned in Web 1.</h3>
+	</li>
+	<li class="slide">
+		<h3>Add Dynamism and Interactivity into the Mix.</h3>
+	</li>
+	<li class="slide">
+		<h3>Get you working with JavaScript.</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-subhead'>
+<h1>Who am I?</h1>
+</article>
+
+<article class='slide slide-list'>
+<h2>Me = Pascal Rettig</h2>
+<ol>
+	<li class="slide">
+		<h3>B.S and Masters from MIT in Computer Science</h3>
+	</li>
+	<li class="slide">
+		<h3>16+ years of Web Development Experience</h3>
+	</li>
+  <li class="slide">
+    <h3>Recently Wrote a Book for Wiley: <a href='http://www.amazon.com/dp/1118301323'>Professional HTML5 Mobile Game Development</a></h3>
+  </li>
+  <li class='slide'>
+  <h3>Ran Boston-based Web Consultancy <a href='http://cykod.com'>Cykod</a> for 6 years</h3>
+	</li>
+  <li class='slide'>
+  <h3>Newly full-time at a stealth Web Startup</h3>
+	</li>
+</ol>
+</article>
+
+
+<article class='slide slide-accent'>
+<h1>Administrivia</h1>
+</article>
+
+
+<article class='slide slide-subhead'>
+  <h1>Syllabus</h1>
+  <h3><a href='images/347-wednesday-syllabus-spring2013.pdf'>Download</a></h3>
+</article>
+
+<article class='slide slide-subhead'>
+<h1><a href="images/GD-grading-spring2012.pdf">Grading</a></h1>
+<p>Graphic Design Department's <br/> Course Grading &amp; Academic Policy </p>
+</article>
+
+<article class='slide slide-list'>
+<h2>Course Homework</h2>
+<ul>
+	<li class="slide">
+  <h3>You will be building 3 main projects over the course of the semester.</h3>
+	</li>
+  <li class='slide'>
+  <h3>Readings will be from <a href="http://www.amazon.com/gp/product/0321832744/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0321832744&linkCode=as2&tag=tun02-20">Learning JavaScript: A Hands-On Guide to the Fundamentals of Modern JavaScript</a><img src="http://www.assoc-amazon.com/e/ir?t=tun02-20&l=as2&o=1&a=0321832744" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></h3>
+	<li class="slide">
+  <h3>Your homework will have two parts: building it and documenting it on your class webpage</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Mailing List / Community</h1>
+<p>Sign up for the Google+ Community for this class and turn on notifications: <a href='https://plus.google.com/communities/112116335976483921783'>https://plus.google.com/communities/112116335976483921783</a>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Homework Critiques</h1>
+<p>Everyone is expected to offer their input each week as we review everyone's homework. This is not optional and is part of your grade</p>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Let's Talk HTML and CSS</h1>
+</article>
+
+
+<article class='slide slide-subhead'>
+	<h1>Let's Review</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<div class="slide">HTML tags are element names surrounded by angle brackets like: <br/>
+		<div class="slide example"><em>&lt;</em> html <em>&gt;</em></div>
+	</div>
+</article>	
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<p class="slide">HTML tags usually come in pairs<br/></p>
+		<div class="slide example"><em> &lt;head&gt;</em> &nbsp; <em class='slide'> &lt;/head&gt;</em></div>
+	<p class="slide">	In the industry we refer to these as <em>start tag and end tag</em> or <em>open tag and close tag</em>
+	</p>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<p> In HTML you can write just the opening tag and it will often work like: <br/>
+			<div class="slide example"><em>&lt;h1&gt;</em> Headline<br/> <em>&lt;p&gt;</em> Body text.</div> 
+	</p>
+	<p class="callout">Don’t do this. Always use open and close or single tags.</p>
+</article>		
+
+<article class='slide slide-list'>
+	<h1>Tags</h1>
+	<p class='slide'>Tell the browser about your content</p>
+	<ul>
+		<li class='slide'>
+			<h3><em>&lt;html&gt;</em> describes the web page</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;body&gt;</em>  visible page content</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;div&gt;</em>  defines a division or a section</h3>
+		</li>
+		<li class='slide'>	
+			<h3><em>&lt;span&gt;</em>  group inline-elements together</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;h1&gt;</em> heading</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;p&gt;</em> paragraph</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;em&gt;</em> adds emphasis</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;header&gt;</em> is header content</h3>
+		</li>
+		<li class='slide'>
+			<h3><em>&lt;nav&gt;</em> is navigational content</h3>
+		</li>
+	</ul><br/>		
+	<p class='slide'>Some tags are generic - <em>&lt;div&gt;</em>, <em>&lt;span&gt;</em> Some have “semantic” meaning <em>&lt;h1&gt;</em>, <em>&lt;nav&gt;</em><p>
+</article>		
+	
+<article class='slide slide-accent'>
+	<h1>Attributes</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<h3 class='slide'>Tell the browser about your content</h3>
+	<ul>
+		<li class='slide'><h3> HTML tags/elements can have attributes
+			</h3>
+		</li>
+		<li class='slide'><h3> Attributes are always specified in the start tag
+			</h3>
+		</li>
+		<li class='slide'><h3> Attributes come in name/value pairs like: name="value"</h3>
+		</li>
+		<li class='slide'>	
+			<h3>&lt;<em>element </em><span class="callout">name = "</span><span class="light">value</span><span class="callout">"<span>&gt;		
+			</h3>
+		</li>
+	</ul>		
+</article>
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<span class="example">&lt;<em>element </em>&nbsp;<em>name</em>&nbsp; = "&nbsp;<em>value</em>&nbsp;"&gt;</span>
+	<p class="slide">Example:</p>
+	<ul>
+		<li class="slide"><h3>links are defined by using an <em>&lt;a&gt;</em> tag</h3>
+		</li>
+		<li class="slide"><h3>you tell the browser what address to link to by adding a <em>href</em> tag</h3>
+		</li>
+		<li class="slide"><h3>&lt;<em>a </em><span class="callout">href = "</span><span class="light">http://www.massart.edu</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+	</ul>		
+</article>		
+	
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<p>Most Common Types</p>
+	<ul>
+		<li class="slide"><h3><span class="callout">CLASS</span> - this defines one or more CSS class names to assign to the tag.</h3>
+		</li>	 
+		<li class="slide"><h3><span class="callout">ID</span> - this defines a unique identifier that uniquely refers to this one tag.</h3> 
+		</li>	
+		<li class="slide"><h3><span class="callout">STYLE</span> - this defines the CSS styles to use for this particular element.<h3>
+		</li>	
+		<li class="slide"><h3>others: href, src, data-*</h3>
+		</li>
+	</ul>
+</article>			
+
+<article class='slide slide-list'>
+	<h1>Attributes</h1>
+	<p>More Examples</p>
+	<ul>
+		<li class="slide"><h3>&lt;<em>nav </em><span class="callout">id = "</span><span class="light">top-nav</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>img </em><span class="callout">src = "</span><span class="light">logo.png</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>p </em><span class="callout">class = "</span><span class="light">higlight</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+		<li class="slide"><h3>&lt;<em>a </em><span class="callout">href = "</span><span class="light">http://www.massart.edu</span><span class="callout">"<span>&gt;		
+		</h3>	
+		</li>
+	</ul>
+</article>		
+
+
+<article class='slide slide-list'>
+<h1>Links</h1>
+	<ol>
+		<li>link from one website to another </li> 
+		<li>link from one page in your site to another</li>
+		<li>link from a specific part of a page to another</li>
+		<li>open a new window with a link</li>
+		<li>send an email with a link</li>
+	</ol></br>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Link Tags</h1>
+	<p class="slide">Always an open and close<br/></p>
+		<div class="slide example"><em> &lt;a&gt;</em> &nbsp; <em> &lt;/a&gt;</em></div>
+	<p class="slide">This is the base of how we link to anything - what we add between those two tags is what we will link to. Remember you close your links!
+	</p>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Add HREF</h1>
+	<h3>We tell the browser where to link by adding</h3>
+	<div class="slide example"><em>href = "..."</em></div>
+	<h3>Example</h3>
+	<h3>&lt;a &nbsp;href&nbsp; = "&nbsp;<em>http://www.website.com</em>&nbsp;"&gt;<em>This is your Link </em>&lt;a&gt;</h3>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Link to Other Sites</h2>
+	<h3>We need to use an absolute url (don't forget the http or https-copy and paste from your browser to be sure)</h3><br/>
+	<h3>&lt;a &nbsp; href&nbsp; = "&nbsp;http://www.website.com&nbsp;"&gt;<em>This is your Link </em>&lt;a&gt;</h3>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Open a Link in a New Window</h2>
+	<h3>we add an attribute inside the a tag of <em>target="_blank"</em></h3><br/>
+		<h3>Generally we don't want to open links in new windows (let the user decide if they want to do this)</h3><br/>
+	<h3>&lt;a &nbsp; href = "http://about.com"&nbsp; target = "_blank"&gt;<em>About Page</em>&lt;a&gt;</h3>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Link to a page in your site</h2>
+	<h3>We need to tell the browser what .html document to link to/open</h3><br/>
+		<h3>If all the pages (.html files) are in the same folder you can just use the name of the file</h3><br/>
+	<h3>&lt;a &nbsp; href&nbsp; = "about.html"&gt;<em>About Page</em>&lt;a&gt;</h3>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Typical Folder Structure</h2>
+		<img src="images/folder.png" class='top-image'/>
+</article>
+
+<article class='slide slide-list'>
+	<h2>Directory Relationships</h2>
+	<h3>If it's in the same folder<br/>
+	<em>= "contact.html"</em></h3><br/>
+	<h3>If it's inside another folder inside your folder<br/>
+	<em>= "images/logo.png"</em></h3><br/>
+	<h3>If it's outside the folder you are in (if we were inside the images folder and wanted to link to index.html)<br/>
+	<em>= "../index.html"</em></h3><br/>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Anchors</h1>
+	<h3>how we link to specific part of a page</h3>
+</article>
+
+<article class='slide slide-list'>
+<h2>How anchors work</h2>
+	<h3>They use the <em>id</em> attribute- great for 1-page scrolling sites</h3>
+	<ol>
+		<li>decide where on the page you want to link</li>
+		<li>add the <em>id=".."</em> attribute inside the opening tag</li> 		
+		<li>the attribute name should start with a letter or _ and be relevant to the text</li>
+		<li>can't reuse attribute names (ids only get used) </li>
+		<li>in the nav link to the anchor text using <em>href="#id-name"</em></li>
+	</ol>
+</article>
+
+
+
+<article class='slide slide-accent'>
+<h1>HTML5 Semantic Structure</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>HTML5 Semantic Tags</h1>
+	<h3>Most Common Tags</h3>
+	<ul> 
+		<li class='slide'>
+			<h3 >&lt;head&gt; = Meta Info</h3>
+		</li>
+		<li class='slide'>
+			<h3 >&lt;body&gt; = Site Content</h3>
+		</li>
+		<li class='slide'>
+			<h3 >&lt;header&gt; = Header (Head area of the site)</h3>
+		</li>
+		<li class='slide'><h3>&lt;nav&gt; = Navigation (Menu/Navigation Area)
+	 
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;section&gt;  = Section
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;article&gt; = Article
+			</h3>
+		<li class='slide'><h3>&lt;footer&gt;  = Footer Area
+			</h3>
+		</li>
+		<li class='slide'><h3>&lt;aside&gt; = An area on a side (side bar)
+			</h3>
+		</li>
+	
+	</ul>		
+</article>
+
+<article class='slide slide-list'>
+	<h2>&lt;head&gt; = Meta Info</h2>
+	<pre class='prettyprint'>
+&lt;head&gt;
+  &lt;title&gt;Page Title - important &amp; Required&lt;/title&gt;
+  &lt;meta name='description' 
+        content='Page description - only important for search results page'/&gt;
+  
+  &lt;meta name='keywords' content='Keywords, not that important'/&gt;
+
+  &lt;link href="stylesheet.css" rel="Stylesheet" type="text/css" /&gt;
+  ...more stylesheets...
+
+  &lt;script src="somejavascriptfile.js"&gt;&lt;/script&gt;
+  ...more scripts...
+&lt;/head&gt;		
+	</pre>		
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Writing Good HTML</h1>
+<h2>"A Semantic Chop"</h2>
+</article>
+
+<article class='slide slide-list'>
+	<h1>The Goals</h1>
+	<ul>
+		<li class='slide'>
+			<h3>HTML tags used in Meaningful ways
+			</h3>
+		</li>
+		<li  class='slide'>
+			<h3>Validating markup</h3>
+		</li>
+		<li class='slide'><h3>All dynamic interactions added “unobtrusively” (usually via jQuery)</h3>
+		</li>
+	</ul>		
+</article>
+
+<article class='slide slide-accent'>
+<h1>Reminder! your HTML is not your design</h1>
+</article>
+
+<article class='slide slide-list'>
+	<h1>Tags We’ll be using</h1>
+	<p>The new (HTML5) semantic tags:<br/> <em>&lt;head&gt;, &lt;nav&gt;, &lt;section&gt;,&lt;article&gt;, &lt;footer&gt;, &lt;aside&gt;</em>
+	</p></br>
+	<p>The generic containers:  <em>&lt;div&gt;</em> and  <em>&lt;span&gt;</em>
+	</p></br>
+	<p>Images (<em>&lt;img&gt;</em>) and hyperlinks (<em>&lt;a&gt;</em>)
+	</p></br>
+	<p>The old semantic tags, including paragraph (<em>&lt;p&gt;</em>), headers (<em>&lt;h1&gt;</em>,<em>&lt;h2&gt;</em>,<em>&lt;h3&gt;</em>,<em>&lt;h4&gt;</em>)
+	</p></br>
+	<p>Lists, primarily unordered (<em>&lt;ul&gt;</em>). Unordered lists are often used for lists of menu items, form items, bulleted items, pretty much anything where there's a list of items that need to be styled consistently.
+	</p>		
+</article>
+
+
+
+<article class='slide slide-subhead'>
+<h1>You Must<br/>Validate &amp; Lint!</h1>
+<h2><a href='http://validator.w3.org/'>Validator</a> / <a href='http://lint.brihten.com/html/'>Linter</a> </h2>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Cascading Style Sheets</h1>
+<ul>
+<li class="slide">
+	<h3>Used for “presentation” of your HTML</h3>
+</li>
+<li class="slide">
+	<h3>Controls the styles of your page</h3>
+</li>
+<li class="slide">
+	<h3>Also Controls the layout of your page (where stuff is positioned)</h3>
+</li>
+<li class="slide">
+	<h3>Can have different styles different media formats (eg. print, screen, mobile)</h3>
+</li>
+</ul>
+</article>
+
+<article class="slide slide-image">
+<h1>What is a style?</h1>
+<img src='images/css.png'/>
+</article>
+
+<article class='slide slide-list'>
+	<h1>We Pick a Selector</h1>
+	<p class="slide">(the part of our HTML we want to style, for example, h1, h2, p or li)<br/></p>
+		<div class="slide example"><em> h1</em> <span class='slide'> &#123; color:red; &#125;</span></div>
+		<div class="slide example"><em> h2</em> <span class='slide'> &#123; font-size:20px; &#125;</span></div>
+		<div class="slide example"><em> a</em> <span class='slide'> &#123; text-decoration:none; &#125;</span></div>
+	<p class="slide">You can also pick id or class names, as well as multiple tags- but for now let's keep it simple</em>
+	</p>
+</article>
+
+
+<article class='slide slide-list'>
+	<h1>We Make a Declaration</h1>
+	<p class="slide">(using CSS properties and values we add formatting)<br/></p>
+		<div class="slide example">h1<span class='slide'> &#123; <em> color:red; </em>&#125;</span></div>
+		<div class="slide example"> h2<span class='slide'> &#123; <em> font-size:20px;</em> &#125;</span></div>
+		<div class="slide example"> a <span class='slide'> &#123; <em> text-decoration:none; </em> &#125;</span></div>
+	<p class="slide">Remember google is your friend here's a quick <a href="http://www.lesliefranke.com/files/reference/csscheatsheet.html">cheat sheet</a>
+	</p>
+</article>
+
+<article class='slide slide-list'>
+<h2>Pay attention to your class and id names!</h2>
+<ul>
+	<li class="slide">
+		<h3>You can't use spaces.</h3>
+	</li>
+	<li class="slide">
+		<h3>You shouldn't use underscores (_) - altough technically now permitted</h3>
+	</li>
+	<li class="slide">
+		<h3>Use camelCase or dashes-to-separate-names</h3>
+	</li>
+	<li class="slide">
+		<h3>I'd recommend dashes - css uses Dashses (<em>background-color, font-family</em>), <br/>
+			Javascript uses camelCase</h3>
+	</li>
+	<li class="slide">
+		<h3>Be consistent! - easier to read and remember what you wrote.</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class="slide slide-list">
+<h2>Available selectors</h2>
+<ul>
+	 <li class='slide'>
+		 <h3>name of element (e.g. <em>p, div, h1</em>)</h3>
+	</li>
+	<li class='slide'>
+		<h3>
+		class name preﬁxed with a period (.)<br/>
+		<em>HTML </em>&lt;div <span class="callout">class=‘my-class-name</span>’&gt;<span class="light"> This is my class name </span>&lt;/div&gt;<br/>
+		<em>CSS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em><span class="callout">.my-class-name</span> {<span class="light"> font-size: 25px; </span>}
+	</h3>
+	</li>
+	<li class='slide'>
+		<h3>element id preﬁxed with a pound sign (#)<br/>
+			<em>HTML </em>&lt;div <span class="callout">id=‘my-id</span>’&gt;<span class="light"> This is my id</span>&lt;/div&gt;<br/>
+			<em>CSS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em><span class="callout">#my-id</span> { <span class="light"> color: red;</span> }
+	</h3>
+</li>
+</ul>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Properties</h1>
+<ul>
+<li class="slide">
+	<h3>There are lots of them</h3>
+</li>
+<li class="slide">
+	<h3>Two Primary types: Layout, Style<br/>
+	(Padding is layout, color is style)</h3>
+</li>
+<li class="slide">
+	<h3>Style generally inherit, Layout don’t</h3>
+</li>
+<li class="slide">
+	<h3>Sometimes can be combined into one: e.g.<br/>
+	<em>font = font-family, font-style, font-variant, ...</em><br/>
+	<em>background = background-color, background-image, background-repeat, background-attachment, background-position ...</em><br/>
+	<em>padding = padding-top, padding-right, padding-bottom, padding-left ...</em></h3>
+</li>
+<li class="slide">
+	<h3>Layout box properties go clockwise from  midnight: top, right, bottom, left</h3>
+</li>
+</ul>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Values</h1>
+<ul>
+<li class="slide">
+	<h3>colors: #FFF, #FFFFFF, rgb(255,255,255), gray, black, red</h3>
+</li>
+<li class="slide">
+	<h3>numbers: 0, 25px, 1.1em, 100%<br/>
+		<em>em's are 'M' height - and these inherit (multiply)</em>
+	</h3>
+</li>
+<li class="slide">
+	<h3>“inherit” is a special property to force inheritence</h3>
+</li>
+</ul>
+</article> 
+
+
+
+<article class='slide slide-list'>
+<h2>Let's Give this a Try! </h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-coder-template="coderdeck-css-playground" data-language='html'>
+<style>
+
+</style>
+</textarea>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Selector combinations </h1>
+<ul>
+	 <li class='slide'>
+		 <h3> Can have a declaration apply to multiple 
+			 styles with a comma (,)</h3>
+			<ul>
+				<li><em>.my-class-one, .my-class-two</em> { color:red; }</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3> Can “Cascade” styles with spaces</h3>
+			<ul>
+				<li><pre>&lt;div id='outer'&gt;&lt;p&gt; ... &lt;/p&gt;&lt;/div&gt;</pre>
+			 		<em>#outer p </em> { color:red; } /* only p's inside of outer */
+				</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3> Can select only "child" styles with spaces</h3>
+			<ul>
+				<li><pre>&lt;div id='outer'&gt;&lt;div&gt;&lt;div&gt; ... &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</pre>
+					<em>#outer > div </em> { background-color:red; } /* only div's that are direct children of outer */</li>
+		 	</ul>
+	</li>
+	<li class='slide'>
+		<h3>Psudeo-classes that apply to elements in certain conditions</h3>
+			<ul>
+				<li><em>a:hover</em>{ color:blue; } /* only links we are hovering over */<br/>
+					<em>a:visited></em> { color:red; } /* links we've visited already */<br/>
+					<em>p:first-child ></em> { color:red; } /* the first paragraph in a container */<br/>
+				</li>
+			</ul>		
+	</li>
+	<li class='slide'>
+		<h3>Also can select by arbitrary attributes</h3>
+			<ul>
+				<li><em>input[type=radio]</em>{ color:blue; } /* only radio buttons */<br/></li>
+			</ul>	
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Let's Talk Layout</h1>
+</article>
+
+<article class="slide slide-list">
+<h1>Layout Properties</h1>
+<ul>
+<li class="slide">
+	<h3>Box model: margin, padding, width, height</h3>
+</li>
+<li class="slide">
+	<h3>top, bottom, left, right</h3>
+</li>
+<li class="slide">
+	<h3>border</h3>
+</li>
+<li class="slide">
+	<h3>position [ static, relative, absolute ]</h3>
+</li>
+<li class="slide">
+	<h3>ﬂoat [ left, right, none ], clear [ left, right, both]</h3>
+</li>
+<li class="slide">
+	<h3>display [none, block, inline inline-block]</h3>
+</li>
+<li class="slide">
+	<h3>visibility [visible, hidden]</h3>
+</li>
+<li class="slide">
+	<h3>background (color, image, repeat, position)</h3>
+</li>
+</ul>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>Box Model</h1>
+</article>
+
+
+<article class='slide slide-image'>
+<h1>Layout = Box Model</h2>
+<img src='images/layout.jpg'/>
+</article>
+
+<article class="slide slide-list">
+<h1>Layout Properties</h1>
+<ul>
+<li class="slide">
+	<h3>Content:text the tags are wrapping</h3>
+		<ul>
+			<li>color:red;</li>
+			<li>font-size:20px;</li>
+			<li>text-transform:uppercase;</li>
+		</ul>	
+</li>
+<li class="slide">
+	<h3>Padding:color behind the text</h3>
+	<ul>
+		<li>padding-top:5px; (-left, -right, -top, -bottom)</li>
+		<li>padding:5px 10px;</li>
+		<li>padding:5px 3px 10px 20px;</li>
+	</ul>	
+	
+</li>
+<li class="slide">
+	<h3>Border:line around the padding</h3>
+	<ul>
+		<li>border-style:solid;</li>
+		<li>border-width:5px;</li>
+		<li>border-color:red;</li>
+		<li>border:5px solid red;</li>
+	</ul>
+</li>
+<li class="slide">
+	<h3>Margin:transparent space around the padding and boarder</h3>
+	<ul>
+		<li>margin-top:5px; (-left, -right, -top, -bottom)</li>
+		<li>margin:5px 10px;</li>
+		<li>margin:5px 3px 10px 20px;</li>
+	</ul>
+</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Box Model Exercise</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant'>
+<style>
+  #box1 { 
+    background-color:teal;
+  }
+
+  #box2 { 
+    background-color:orange;
+  }
+
+
+</style>
+
+<div id="box1">I'm a box</div>
+<div id="box2">I'm a box 2!</div>
+</textarea>
+</article> 
+
+
+<article class='slide slide-accent'>
+	<h1>How do you layout elements on the page?</h1>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Only two ways to layout:</h1>
+	<ul>
+		<li class="slide">
+    <h3>1. Using floats to align things next to each other</h3>
+		</li>
+		<li class="slide">
+			<h3>2. Use “position:absolute; top:...; left:....” inside of a positioned container.</h3>
+		</li>
+    <style>
+.position-example { 
+  -webkit-transition: -webkit-transform 1s linear; 
+  -webkit-transform: translate(0,0) rotate(0deg); }
+.position-example.deck-current {
+ -webkit-transform: translate(30px,250px) rotate(15deg);
+}
+    </style>
+		<li class="position-example slide">
+    <h3 style=''>(I lied) 3. you can use transforms - but let's ignore those for now</h3>
+		</li>
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h1>Layout with floats</h1>
+<h3>Use this for content, page elements that need to flow or resize</h3><br/>
+	<ul>
+		<li class="slide">
+    <h3>Use float:left or float:right to float elements</h3>
+		</li>
+		<li class="slide">
+    <h3>Make sure that elements have a width - floating will squeze elements down</h3>
+		</li>
+		<li class="slide">
+    <h3>Make sure to clear your floats otherwise the container won't have a height</h3>
+		</li>
+		<li class="slide">
+    <h3>You need an extra element to clear, or can use the clearfix</h3>
+		</li>
+	</ul>
+</article>
+
+
+<article class='slide slide-accent'>
+	<h1>Positioning</h1>
+</article>
+
+<article class="slide slide-list">
+<h1>Position</h1>
+<h3>used for elements that will always stay in the same place (logos, navbars, footers)</h3><br/>
+	<ul>
+		<li class="slide">
+			<h3>position:static</h3>
+		</li>
+		<li class="slide">
+			<h3>position:relative</h3>
+		</li>
+		<li class="slide">
+			<h3>position:absolute</h3>
+		</li>
+		<li class="slide">
+			<h3>position:fixed</h3>
+		</li>				
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h1>Position Static</h1>
+	<ul>
+		<li class="slide">
+			<h3>The default - all elements are set to this already</h3>
+		</li>
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h1>Position Relative</h1>
+	<ul>
+		<li class="slide">
+			<h3>Same as Static until you set coordinates</h3>
+		</li>
+		<li class="slide">
+			<h3>Use coordinates to move the item "relative" to where it is normally<br/>
+				example: top:0px; left:0px;<br/>
+				example: bottom:5px; right:20px;</h3> 
+		</li>
+		<li class="slide">
+			<h3>When you move things relatively, the space they take-up on the page stays the same</h3>
+		</li>
+	</ul>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Position Absolute</h1>
+	<ul>
+		<li class="slide">
+			<h3>Can move elements anywhere using top, left, right, bottom</h3>
+		</li>
+		<li class="slide">
+			<h3>Warning: when you position absolutely the page element is removed completely from the flow of the page</h3>
+		</li>		
+		<li class="slide">
+			<h3>Use “position:relative” to create an zone for absolutely positioning content</h3>
+		</li>
+		<li class="slide">
+			<h3>Use “position:absolute; top:...; left:....” to place something inside that zone.</h3>
+		</li>
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h1>Position Fixed</h1>
+	<ul>
+		<li class="slide">
+			<h3>Use rarely - usually only for sticky navbars (page will scroll and nav stays at the top or bottom)</h3>
+		</li>
+	</ul>
+</article>
+
+<article class='slide slide-accent'>
+	<h1>More Layout Techniques</h1>
+</article>	
+
+<article class="slide slide-subhead">
+	<h1>Start with<br/> your reset</h1>
+	<p>Eric Meyer Reset<br/>
+		<a href="http://meyerweb.com/eric/tools/css/reset/">http://meyerweb.com/eric/tools/css/reset/</a>
+	</p>
+	<h2><a href="http://bit.ly/meyerreset">http://bit.ly/meyerreset</a>
+	</h2>	
+</article>
+
+<article class='slide slide-list'>
+	<h1>Centering Content</h1>
+	<h3>Give it a width and set margin: 0 auto;</h3>
+<pre>
+body {
+  margin:0 auto;
+  width:960px;
+}
+	</pre>
+</article>	
+
+<article class="slide slide-subhead">
+<h1>Beginner Mistakes</h1>
+	<h3><a href="http://css-tricks.com/css-beginner-mistakes-1/">Beware of Divitus and Classitus</a></h3>
+</article>
+
+
+<article class="slide slide-list">
+<h1>Basic Chop 101</h1>
+	<ul>
+		<li class="slide">
+			<h3>Relatively positioned header</h3>
+		</li>
+		<li class="slide">
+			<h3>Absolutely positioned top nav</h3>
+		</li>
+		<li class="slide">
+			<h3>Image replacement logo</h3>
+		</li>
+		<li class="slide">
+			<h3>Floated menu items</h3>
+		</li>
+		<li class="slide">
+			<h3>Floated body</h3>
+		</li>
+		<li class="slide">
+			<h3>Relatively positioned footer</h3>
+		</li>	
+	</ul>
+</article>
+
+<article class="slide slide-list">
+<h2>CSS Code</h2>
+	<pre>body { width:960px; margin:0 auto; }
+		
+header#site-header {
+  position:relative; height:80px;
+}
+
+#site-header h1 a { 
+  display:block;	
+  text-indent:-9999px;    
+  position:absolute;
+  width:300px; height:80px;
+  background:url(logo.png) no-repeat left top;
+}
+nav#top-nav { position:absolute; right:0px; top:0px; }
+
+nav#main-menu { height:30px; background-color:black; }
+nav#main-menu ul li { display:block; float:left; padding:0 5px; }
+nav#main-menu ul li a { display:block; color:white; padding:5px 5px; background-color:blue; }
+
+section#page-content { float:left; width:550px; padding:50px 20px; }
+aside#sidebar { float:right; width:220px; padding:50px 10px;; }
+
+footer#site-footer {     clear:both; background-color:black;     color:white; padding:10px 0px;  }</pre>
+</article>
+
+
+<article class='slide slide-subhead'>
+<h1><a href='http://twitter.github.com/bootstrap'>Twitter Bootstrap</a></h1>
+<h3>The base set of styles for getting up and running quickly</h3>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>GitHub</h1>
+  <h3>Get your account set up if you don't have one and create a new myname.github.com repository (archive your old one with a different name)</h3>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+    <h3>Read up on <a href='http://twitter.github.com/bootstrap'>Twitter Bootstrap</a> and understand what it is and how to use it.</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Create a Basic site starting with one of the templates on the <a href='http://twitter.github.com/bootstrap/getting-started.html'>Getting Started Page</a></h3>
+			</li>
+      <li><h3>Add in a name, your class year, a picture, and one random fact about you.</h3></li>
+      <li><h3>Push it to your repository on GitHub</h3></li>
+		</ul>
+</ul>	
+	
+</article>
+
+
+
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
