@@ -438,6 +438,81 @@ Web 2: Advanced Web Projects<br/>
 </textarea>
 </article>
 
+
+
+<article class='slide slide-list'>
+<h2>Transitions</h2>
+<ul>
+	<li class="slide">
+		<h3>You can change properties of elements via JavaScript or via Pseudo-classes</h3>
+	</li>
+	<li class="slide">
+		<h3>For example:</h3>
+<pre><code>
+&lt;div class='box'>&lt;/div>
+
+&lt;style>
+ .box { color:red; width:50px; height:50px; }
+ .box:hover { color:blue; }
+&lt;/style>
+</code></pre>
+	</li>
+	<li class="slide">
+		<h3>Transitions let you control how that transition happens</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Transition Example</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' >
+
+<div class='box'></div>
+<style>
+
+  .box { 
+    background-color:red; 
+    width:50px; height:50px; 
+    /* -webkit-transition: background-color 1s ease-in-out; */
+  }
+  .box:hover { 
+    background-color:blue; 
+  }
+
+</style>
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h2>All Together Now</h2>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' >
+
+<style>
+
+  .box { 
+    background-color:red; 
+    width:100px; height:100px; 
+    position:absolute;
+    left: 100px;
+    top: 100px;
+    -webkit-transition: -webkit-transform 2s ease-in-out, 
+                        background-color 3s ease-in;
+  }
+  .box:hover { 
+    -webkit-transform: rotate(2turn) scale(2);
+    background-color:blue;
+  }
+
+</style>
+<div class='box'></div>
+</textarea>
+</article>
+
+
+
 <article class='slide slide-homework'>
 <h2>Homework</h2>
 <h3 class='slide'>Reading</h3>
@@ -450,8 +525,10 @@ Web 2: Advanced Web Projects<br/>
 	<h3 class='slide'>Coding</h3>
        <ul class='slide'>
 			<li>
-				<h3>Create 3 Shapes using CSS3</h3>
+                          <h3>Create 3 Shapes using CSS3 - <a href='http://fc12.johncaserta.info/triennial/'>Examples from RISD students</a></h3>
 			</li>
+                        <li>
+                          <h3>Start thinking about your interactive site - <a href='http://thegoodman.cc/'>Extreme example</a></h3>
 		</ul>
 </ul>	
 	
