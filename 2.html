@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Web 2</title>
+	<title>Web 2 - Advanced CSS</title>
 	<meta name="viewport" content="width=1024">
 	
 	<!-- Replace path with correct path to deck.core.css. -->
@@ -83,11 +83,11 @@
 	</script> 	
 
 <article class='slide slide-subhead'>
-<h1>MassArt Web 2 </h1>
+<h1>Advanced CSS</h1>
 
 <p>
-Advanced Web Projects<br/>
-<a href='http://cykod.github.com/Web2Spring2013/1.html'>http://cykod.github.com/Web2Spring2013/1.html</a>
+Web 2: Advanced Web Projects<br/>
+<a href='http://cykod.github.com/Web2Spring2013/2.html'>http://cykod.github.com/Web2Spring2013/2.html</a>
 </p>
 </article>
 
@@ -95,47 +95,256 @@ Advanced Web Projects<br/>
 <h1>Order of Business</h1>
 	<ol>
 		<li class="slide">
-			<h3>Welcome - Who, What, How</h3>
+      <h3>Review Homework</h3>
 		</li>
 		<li class="slide">
-			<h3>Administrivia</h3>
+			<h3>Positioning Revisited</h3>
 		</li>
 		<li class="slide">
-			<h3>HTML/CSS Review</h3>
+			<h3>Shapes of CSS</h3>
 		</li>
 		<li class="slide">
-			<h3>GitHubbery</h3>
+			<h3>Transforms</h3>
 		</li>
 		<li class="slide">
-    <h3>Homework</h3>
+			<h3>3D Transforms</h3>
+		</li>
+		<li class="slide">
+			<h3>Transitions</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
 		</li>
 	</ol>
 </article>
 
 <!-- Apply a class of "coder-editor" to a textarea to make it show up as runnable code -->
 <article class='slide slide-list'>
-<h1>Course Requirements</h1>
+<h1>Positioning Revisited</h1>
 <ul>
 	<li class="slide">
-		<h3>You should have a good understanding of HTML</h3>
+  <h3>So we've actually been lying to you...</h3>
 	</li>
 	<li class="slide">
-		<h3>You should have a good understanding CSS</h3>
+  <h3>position:relative is not anything special</h3>
 	</li>
 	<li class="slide">
-		<h3>You should know basic CSS positioning and be able to do a basic chop</h3>
-	</li>
-	<li class="slide">
-		<h3>You need to be willing to put in the time on the projects and learn outside of class.</h3>
+  <h3>All we really care about is anything but position:static</h3>
 	</li>
 </ul>
 </article>
 
+
 <article class='slide slide-list'>
-<h2>Course Goals</h2>
+<h2>Positioning Playground</h2>
+<p> Static vs. Relative vs. Absolute vs. Fixed</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<p>Here's a paragraph of text before!</p>
+<div id='box1' class='box'>
+  <div id='box2' class='box'>
+    <div id='box3' class='box'>
+     <div id='box4' class='box'>
+     </div>
+    </div>
+  </div>
+</div>
+<p>Here's a paragraph of text after!</p>
+<style>
+   html, body { height: 100%; }
+  .box { width:50%; height:50%; opacity:0.9; }
+  #box1 { background-color:blue; }
+  #box2 { background-color:red; }
+  #box3 { background-color:green; }
+  #box4 { background-color:orange; }
+</style>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h1>Only way to position stuff? No</h1>
 <ul>
 	<li class="slide">
-		<h3>Build in the basics you learned in Web 1.</h3>
+  <h3>Stuff next to other stuff?</h3> 
+	</li>
+  <li class="slide">
+  <h3>Floats: move stuff left or right next to each other</h3>
+  </li>
+  <li class="slide">
+  <h3>Display: inline, inline-block, block</h3>
+  </li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Display Playground</h2>
+<p>Floats, clears, inline, inline-block, block</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<div id='wrapper'>
+  <div id='div1'>Here's a div before</div>
+  <span id='span1'>Here's a span of text before!</span>
+  <span id='span2'>Here's another span of somewhat longer text that is going right here</span>
+  <span id='span3'>Here's a span of text after!</span>
+  <div id='div2'>Here's a div after</div>
+</div>
+<style>
+  body { font-size:2em; }
+  span { background-color: pink; }
+  #wrapper { background-color:rgba(200,200,200,0.7); }
+</style>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h1>Drawing with CSS</h1>
+<ul>
+	<li class="slide">
+  <h3>How do we draw with CSS?</h3>
+	</li>
+	<li class="slide">
+  <h3>Well - let's start with width, height and background color: squares and rectangles</h3>
+	</li>
+  <li class="slide">
+  <h3>Next, we can round stuff with border-radius</h3>
+  </li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 1</h2>
+<p>Draw me a 50px by 50px red square, next to a green circle, next to a blue rectangle</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' data-save='css3-shapes1'>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h1>More tricks</h1>
+<ul>
+	<li class="slide">
+  <h3>Use :before and :after to limit number of HTML tags you need (need content)</h3>
+  <code><pre>
+     .block:after {
+        content:"";
+        width:30px;
+        height:30px;
+        background-color:red;
+     }
+  </pre></code>
+	</li>
+	<li class="slide">
+  <h3>Use absolute positioning to move stuff around</h3>
+	</li>
+  <li class="slide">
+  <h3>Use the longer form of border-radius to pick individual sides to radius:</h3>
+  <code><pre>
+     .half-moon {
+        width:100px;
+        height:100px;
+        border-radius: 0 0 100px 100px; 
+     }
+  </pre></code>
+
+  </li>
+  <li class="slide">
+  <h3>Use borders to create lines instead of full shapes</h3>
+  </li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Exercise 2</h2>
+<p>Draw a smiley face with 3 HTML tags</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' data-save='css3-smiley-face'>
+
+<div class='smile'></div>
+<style>
+
+.smile {
+  position:absolute;
+  top: 100px;
+  left: 40px;
+  width: 100px;
+  height: 50px;
+  border-radius:0 0 100px 100px;
+  border:10px solid black;
+  border-top:none;
+}
+</style>
+
+</textarea>
+
+<script type='coder-solution'>
+
+<div class='head'>
+<div class='eyes'></div>
+<div class='smile'></div>
+</div>
+
+<style>
+.head { width:200px; height:200px; border-radius:50%; background-color:yellow; position:absolute;}
+
+.smile {
+  position:absolute;
+  top: 100px;
+  left: 40px;
+  width: 100px;
+  height: 50px;
+  border-radius:0 0 100px 100px;
+  border:10px solid black;
+  border-top:none;
+}
+
+.eyes { 
+  width:30px;
+  height:30px;
+  background-color:black;
+  position:absolute;
+  left:50px;
+  top:50px;
+  border-radius:50%;
+}
+.eyes:after { 
+  content:"";
+  width:30px;
+  height:30px;
+  background-color:black;
+  position:absolute;
+  left:60px;
+  top:0px;
+  border-radius:50%;
+}
+</style>
+
+
+</script>
+</article>
+
+
+<article class='slide slide-list'>
+  <h1>Now what?</h1>
+<ul>
+	<li class="slide">
+  <h3>Can you really draw anything cool with this?</h3>
+	</li>
+	<li class="slide">
+  <h3><a href='http://tjrus.com/iphone'>Yes.</a></h3>
+	</li>
+  <li class="slide">
+  <h3>But we need some more shapes</h3>
+  </li>
+  <li class="slide">
+  <h3>Enter: <a href='http://css-tricks.com/examples/ShapesOfCSS/'>The Shapes of CSS</a></h3>
+  </li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>How about some better positioning tools?</h2>
+<ul>
+	<li class="slide">
+  <h3>Enter the transform! https://developer.mozilla.org/en-US/docs/CSS/transform</h3>
 	</li>
 	<li class="slide">
 		<h3>Add Dynamism and Interactivity into the Mix.</h3>
