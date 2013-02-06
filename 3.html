@@ -167,7 +167,7 @@ Animation and other goodies<br/>
 box-shadow: [inset] x y [size] [spread] [color]
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <div class='box'></div>
 <style>
   .box { 
@@ -189,7 +189,7 @@ background-size: auto|contain|cover<br/>
 background-attachment: fixed<br/>
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <div class='box'></div>
 <style>
   body, html { height:100%; }
@@ -212,7 +212,7 @@ background-attachment: fixed<br/>
 background: img [position] [size] [repeat] [attachment], img2 [position] [size] [repeat] [attachment] [color]
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <div class='box'></div>
 <style>
   body, html { height:100%; }
@@ -235,7 +235,7 @@ linear-gradient ([ [ &lt;angle> | to &lt;side-or-corner> ] , ] ? &lt;color-stop>
 radial-gradient ([ [ &lt;shape> || &lt;size> ] [ at &lt;position> ] ? , | at &lt;position> , ] ? &lt;color-stop> [ , &lt;color-stop> ] +)
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <div class='box'></div>
 <style>
   body, html { height:100%; }
@@ -261,7 +261,7 @@ vs. opacity:0-1;<br/>
 Can we transition hues? ...
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
 <style>
   body, html { height:100%; }
   .box { 
@@ -286,7 +286,7 @@ Can we transition hues? ...
 text-shadow: offsetX offsetY blur-radius color;
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <style>
   body, html { height:100%; }
   h1 { 
@@ -352,7 +352,7 @@ text-shadow: offsetX offsetY blur-radius color;
 grayscale, sepia, saturate, hue-rotate, invert, opacity, brightness, contrast, blur, dropshadow
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'>
   <style>
   body, html { height:100%; }
   img {
@@ -400,7 +400,7 @@ Link to a free font, reference it in your CSS style, and then add effects and st
 When you're done - save a screenshot and post to the community page.
 </p>
 
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' data-save="css3-name-example" >
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed' data-save="css3-name-example" >
   <!-- link to your font -->
 
   <style>
@@ -458,7 +458,7 @@ When you're done - save a screenshot and post to the community page.
 .ball {
    -webkit-animation-name: bounce;
    -webkit-animation-duration: 1s;
-   -webkit-animation-timing-function: ease; /* default ease */
+   -webkit-animation-timing-function: ease; /* default ease, (also: linear) */
    -webkit-animation-delay: 1s;             /* default 0 */
    -webkit-animation-iteration-count: 3;    /* default 1 (also: infinite) */
    -webkit-animation-direction: alternate;  /* default normal */
@@ -472,7 +472,7 @@ When you're done - save a screenshot and post to the community page.
 
 <article class='slide slide-list'>
 <h2>Animation Example</h2>
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html'  >
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed'  >
 <style>
 /* Define the keyframe */
 @-webkit-keyframes bounce {
@@ -500,8 +500,144 @@ html, body { width: 500px; height:400px; }
 </article>
 
 <article class='slide slide-list'>
-<h2>Animation Exercise</h2>
-<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='html' data-save="css3-animation-exercise" >
+<h2>Exercise 2 (20 min): Keyframe</h2>
+<p>
+Change this from a simple hover to a keyframe animation that first expands the content 
+block down while fading in, and then expands it right.
+  <!-- 
+  
+    @-webkit-keyframes expand {
+      0% { opacity:0; height:0px; width:0px;}
+      50% { opacity:1; height:240px; width:0px;  }
+      100% { opacity:1; width:340px;  }
+    }
+
+    .container:hover .content {
+      display:block;
+      -webkit-animation: expand 4s ease 0s;
+    }
+  --!>
+</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed' data-save='css3-animation-exercise'>
+<style>
+  .tab { background-color:black; color:white; padding:5px; width:200px; }
+  .content { display:none; border:1px solid #CCC; overflow:hidden; width:340px; height:240px;  }
+  .details { width:300px; height:200px; padding:20px; }
+
+  .container:hover .content {
+    display:block;
+  }
+</style>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 3 (20 min): Containment </h2>
+<p>
+Create a car that appears from the right, drives in the middle of the road for a bit, and then drives off to the left. (Assets from <a href='http://www.cssdo.it/2012/05/drive-a-css-animated-driving-car/'>CSSDo.it</a>)
+  <!-- 
+
+<style>
+@-webkit-keyframes road-move {
+  0% { background-position: 0px; }
+  100% { background-position: 6000px; }
+}
+@-webkit-keyframes rotate-tire {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(-720deg); }
+}
+@-webkit-keyframes drive {
+    0% { -webkit-transform: translate(600px,0px); }
+    20% { -webkit-transform: translate(200px,0px); }
+    50% { -webkit-transform: translate(300px,0px); }
+    80% { -webkit-transform: translate(400px,0px); }
+   100% { -webkit-transform: translate(-600px,0px); }
+          
+}
+  
+#road{
+  background: url(images/back.jpg);
+  height: 200px;
+  width: 100%;
+  -webkit-animation:road-move 4s linear infinite;
+  position:relative;
+  overflow:hidden;
+}
+
+.wheel {
+  background: url(images/tire.png);
+  width: 60px;
+  height: 60px;
+}
+
+#car {
+  background: url(images/car.png) no-repeat 0px 80px;
+  width: 400px;
+  height: 200px;
+  position:absolute;
+  bottom:30px;
+  -webkit-transform:translate(800px,0);
+  -webkit-animation:drive 5s linear 1s infinite ;
+}
+  
+ #wheel1 { 
+    position:absolute; left:55px; bottom:-13px; 
+    -webkit-animation:rotate-tire 500ms linear infinite;
+ } 
+ #wheel2 { 
+    position:absolute; right:55px; bottom:-13px; 
+    -webkit-animation:rotate-tire 500ms linear infinite;
+    
+  } 
+   
+ 
+</style>
+
+<div id='road'>
+  <div id='car'>
+   <div id='wheel1' class='wheel'></div>
+   <div id='wheel2' class='wheel'></div>
+  </div>
+</div>
+
+ 
+     --!>
+</p>
+<textarea class='coder-editor coder-editor-split coder-editor-instant' data-language='htmlmixed' data-save='css3-animation-car'>
+<style>
+@-webkit-keyframes road-move {
+  0% { background-position: 0px; }
+  100% { background-position: 6000px; }
+}
+
+#road{
+  background: url(images/back.jpg);
+  height: 200px;
+  width: 100%;
+  -webkit-animation:road-move 4s linear infinite;
+  position:relative;
+}
+
+.wheel {
+  background: url(images/tire.png);
+  width: 60px;
+  height: 60px;
+}
+
+#car {
+  background: url(images/car.png) no-repeat 0px 80px;
+  width: 400px;
+  height: 200px;
+}
+</style>
+
+<div id='road'>
+</div>
+
+<div id='car'></div>
+<div id='wheel1' class='wheel'></div>
+<div id='wheel2' class='wheel'></div>
+
  </textarea>
 </article>
 
