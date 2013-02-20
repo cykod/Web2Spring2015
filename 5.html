@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - Intro JavaScript Continued</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+<h1>JavaScript and more JavaScript</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/5.html'>http://cykod.github.com/Web2Spring2013/5.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+      <h3>Review Proposals</h3>
+		</li>
+		<li class="slide">
+      <h3>Reading JavaScript</h3>
+		</li>
+		<li class="slide">
+      <h3>Back to Numbers</h3>
+		</li>
+		<li class="slide">
+      <h3>A Little jQuery</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Back to Numbers</h2>
+  <p>Let's make a reusable number guessing function</p>
+<textarea class='coder-editor' data-save='ws2013-5-guess2'>
+  <button onclick='checkGuess(0);'>0</button>
+  <button onclick='checkGuess(1);'>1</button>
+  <button onclick='checkGuess(2);'>2</button>
+  <button onclick='checkGuess(3);'>3</button>
+  <button onclick='checkGuess(4);'>4</button>
+  <button onclick='checkGuess(5);'>5</button>
+
+  <script>
+     function generateRandomNumber() {
+       return Math.round(Math.random()*5);
+     }
+
+     function checkGuess(guess) {
+       if(guess === num) {
+         alert("You got it right! Guess the next number!");
+         num = generateRandomNumber();
+       } else {
+         if(guess > num) {
+            alert("Wrong! Guess lower!");
+         } else if(guess < num) {
+            alert("Wrong! Guess higher!");
+         }
+       }
+     }
+
+     var num = generateRandomNumber();
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-subhead'>
+  <h1>Visually Parsing JavaScript</h1>
+  <h2>You need to break down the page into small chunks</h2>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Function Calls</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // functionName();
+    // functionName(parameter1);
+    // functionName(parameter1,parameter2);
+    // functionName(parameter1,parameter2, parmeter3);
+
+    alert("Yay");  // Side effect: alert box
+
+    Math.random(); // no Side effect, not that useful
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Assignments</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // variableName is anything you like
+    // first name, say "var"
+    // var variableName = value;
+    // Next time, same variable, no "var" needed
+    // variableName = value;
+
+    var x = 7;
+
+    // .. do something with x ..
+    x = 10
+  </script>
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+  <h2>Assignments, Function Calls mix and match</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // var variableName = functionName();
+
+    var num = Math.random();
+
+    num = Math.round(Math.random()*5);
+  </script>
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+  <h2>Conditions</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // (variableName == value)
+    // (variableName <= value)
+    // (variableName >= value)
+    // returns a value that's either true or false
+    var x = 5
+   
+    var result = (x == 10);
+
+    alert(result);
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Conditionals</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // if(condition) { ... }
+    // if(condition) { ... } else { .. }
+    // if(condition) { ... } else if { .. } else { .. }
+    var x = 5
+
+    var result = (x == 10);
+
+    // Use the result variable...
+    if(result) { 
+      alert("Yes!");
+    } else {
+      alert("No!");
+    } 
+
+    // Or put the condition right in the conditional
+    /*if(x==10) { 
+      alert("Yes!");
+    } else {
+      alert("No!");
+    } */
+
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Functions - creating your own</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // functionName can be anything
+    // function functionName() { .. }
+    // function functionName(parameter1) { .. }
+    // function functionName(parameter1,parameter2) { .. }
+    
+  function checkNumberAgainstTen(num) {
+    if(num==10) { 
+      alert("Yes!");
+    } else {
+      alert("No!");
+    } 
+  }
+    
+
+  checkNumberAgainstTen(5);
+  checkNumberAgainstTen(10);
+  checkNumberAgainstTen(15);
+     
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Functions without names - 1 time use</h2>
+  <textarea class='coder-editor'>
+  <script>
+    // functionName can be anything
+    // function() { .. }
+    // function(parameter1) { .. }
+    // function(parameter1,parameter2) { .. }
+    
+  // For example, with a time out
+  // (setTimeout is part of the base JavaScript API)
+  setTimeout(function() {
+    alert("Time's Up!")
+      },2000);
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Back to Numbers Again</h2>
+  <p>What is what?</p>
+  <textarea class='coder-editor'>
+  <button onclick='checkGuess(0);'>0</button>
+  <button onclick='checkGuess(1);'>1</button>
+  <button onclick='checkGuess(2);'>2</button>
+  <button onclick='checkGuess(3);'>3</button>
+  <button onclick='checkGuess(4);'>4</button>
+  <button onclick='checkGuess(5);'>5</button>
+
+  <script>
+     function generateRandomNumber() {
+       return Math.round(Math.random()*5);
+     }
+
+     function checkGuess(guess) {
+       if(guess === num) {
+         alert("You got it right! Guess the next number!");
+         num = generateRandomNumber();
+       } else {
+         if(guess > num) {
+            alert("Wrong! Guess lower!");
+         } else if(guess < num) {
+            alert("Wrong! Guess higher!");
+         }
+       }
+     }
+
+     var num = generateRandomNumber();
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>...now pick a number from 0 to 100</h2>
+<ul>
+	<li class="slide">
+  <h3>Just kidding...</h3>
+	</li>
+	<li class="slide">
+  <h3>...but not really</h3>
+	</li>
+	<li class="slide">
+  <h3>We don't want to cut and paste 100 buttons and onclick events do we?</h3>
+	</li>
+	<li class="slide">
+  <h3>Enter the loop!</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Looping is kinda hard</h2>
+<ul>
+	<li class="slide">
+  <h3>We have: do-while</h3>
+  <code><pre>
+      do { 
+        ... 
+     } while(condition);
+  </pre></code>
+	</li>
+  <li class='slide'>
+  <h3>while</h3>
+  <code><pre>
+      while(condition) { 
+        ... 
+     } 
+  </pre></code>
+	</li>
+  <li class='slide'>
+  <h3>and finally: for</h3>
+  <code><pre>
+    //for(initial;condition;increment)
+      for(var i=0;i<100;i++) {
+        ... 
+      } 
+  </pre></code>
+  <p>For has a difficult syntax but is very powerful</p>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Looping example</h2>
+  <p>Let's play with loops</p>
+  <textarea class='coder-editor'>
+  <script>
+    var x = 10;
+
+    while(x > 0) {
+      console.log(x);
+      x = x - 1;
+    }
+  </script>
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+  <h2>Brief detour: jQuery appending nodes and events</h2>
+<ul>
+	<li class="slide">
+  <h3>We're not going to cover jQuery in depth for 2 weeks, but we want to manipulate us some DOM</h3>
+	</li>
+	<li class="slide">
+  <h3>Let's learn just a couple of things...</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>jQuery Basics</h2>
+<ul>
+	<li class="slide">
+		<h3>Everything is “namespaced” inside of the jQuery object, which is aliased with “$”</h3>
+	</li>
+	<li class="slide">
+		<h3>...which means everything you do in jQuery starts with a $</h3>
+	</li>
+	<li class="slide">
+		<h3>Uses CSS selectors for picking pieces of the DOM out.</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-subhead'>
+<h1>Docs are your Friend</h1>
+<h2>Get comfortable with <a href='http://docs.jquery.com'>docs.jquery.com</a></h2>
+</article>
+
+ <article class='slide slide-list'>
+  <h2>Basic selection + manipulation </h2>
+  <p>Let's try out $.text, $.html, $.hide, $.show,  $.css, $.attr, $.addClass, $.hasClass, $.removeClass
+   <a href='http://api.jquery.com/category/selectors/'>Selector Docs</a> / <a href='http://api.jquery.com/category/manipulation/'>Manipulation Docs</a>
+</p>
+<textarea class='coder-editor'>
+<script>
+$(function() {
+
+
+});
+</script>
+<header>
+   <h1>Site Header</h1>
+</header>
+<nav id='main-nav'>
+  <a href='#'>Item 1</a> <a href='#'>Item 2</a> <a href='#'>Item 3</a>
+</nav>
+<section>
+  <article>
+  <h1 class='article-header'>Title</h1>
+  <p>Lorem Ipsum Dolor Sic Amet</p>
+  </article>
+  <article>
+    <h1  class='article-header'>Title 2</h1>
+    <p>Lorem Ipsum Dolor Sic Amet</p>
+  </article>
+</section>
+</textarea>
+
+</article>
+
+<article class='slide slide-list'>
+  <h2>Creating and appending elements</h2>
+  <p>Let's try out creating elements with $(), then using $.append</p>
+<textarea class='coder-editor'>
+<script>
+$(document).ready(function() {
+
+
+});
+</script>
+<header>
+   <h1>Site Header</h1>
+</header>
+<nav id='main-nav'>
+  <a href='#'>Item 1</a> <a href='#'>Item 2</a> <a href='#'>Item 3</a>
+</nav>
+<section>
+  <article>
+  <h1 class='article-header'>Title</h1>
+  <p>Lorem Ipsum Dolor Sic Amet</p>
+  </article>
+  <article>
+    <h1  class='article-header'>Title 2</h1>
+    <p>Lorem Ipsum Dolor Sic Amet</p>
+  </article>
+</section>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Loops and creating buttons</h2>
+  <textarea class='coder-editor'>
+  <div id='button-container'></div>
+
+  <script>
+    var x = 10;
+
+    while(x > 0) {
+      var buttonHtml = "<button onclick='alert(\"My Number:  " + x + "\");'>" + x + "</button>";
+      var button = $(buttonHtml);
+      $("#button-container").append(button);
+      x = x - 1;
+    }
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Stop the ugliness!!!!!</h2>
+  <p>We can do better than creating ugly HTML strings</p>
+  <textarea class='coder-editor'>
+  <div id='button-container'></div>
+
+  <script>
+    var x = 10;
+
+    while(x > 0) {
+      var button = $("<button>");
+      
+      button.html(x);
+        
+      button.click(function() {
+          var buttonNumber = $(this).html();
+          alert("My Number:" + buttonNumber);
+      });
+
+      $("#button-container").append(button);
+      x = x - 1;
+    }
+  </script>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Exercise 1: All Together</h3>
+  <p>Generate 100 buttons, and have them check guesses. Once you get it right, create a new number.</p>
+<textarea class='coder-editor' data-save='ws2013-5-guess4'>
+  <div id='button-container'></div>
+  <script>
+    // Your code here 
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Exercise 2: Enhance!</h2>
+  <p>Style your buttons so they are consistantly sized, have hover effects and fade out (hint: $(this).fadeOut()); after you click on them</p>
+<textarea class='coder-editor' data-save='ws2013-6-guess5'>
+  <div id='button-container'></div>
+  <script>
+    // Your code here 
+  </script>
+</textarea>
+</article>
+
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+    <h3>LJS 5-6</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Design (in Illustrator or Photoshop) for your interactive website</h3></li>
+		</ul>
+</ul>	
+	
+</article>
+
+
+
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
