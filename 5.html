@@ -99,7 +99,7 @@
      }
 
      function checkGuess(guess) {
-       if(guess === num) {
+       if(guess == num) {
          alert("You got it right! Guess the next number!");
          num = generateRandomNumber();
        } else {
@@ -286,7 +286,7 @@
      }
 
      function checkGuess(guess) {
-       if(guess === num) {
+       if(guess == num) {
          alert("You got it right! Guess the next number!");
          num = generateRandomNumber();
        } else {
@@ -377,7 +377,7 @@
   <h2>Brief detour: jQuery appending nodes and events</h2>
 <ul>
 	<li class="slide">
-  <h3>We're not going to cover jQuery in depth for 2 weeks, but we want to manipulate us some DOM</h3>
+  <h3>We're not going to cover jQuery in depth for 2 weeks, but we want to manipulate us some DOM (in case you forgot that means manipulate HTML on the page)</h3>
 	</li>
 	<li class="slide">
   <h3>Let's learn just a couple of things...</h3>
@@ -486,7 +486,7 @@ $(document).ready(function() {
 </article>
 
 <article class='slide slide-list'>
-  <h2>Stop the ugliness!!!!!</h2>
+  <h2>Stop the code ugliness!!!!!</h2>
   <p>We can do better than creating ugly HTML strings</p>
   <textarea class='coder-editor'>
   <div id='button-container'></div>
@@ -523,10 +523,50 @@ $(document).ready(function() {
 </textarea>
 </article>
 
+<!-- <div id='button-container'></div>
+<script>
+  var x = 10;
+
+  while(x > 0) {
+    var button = $("<button>");
+    
+    button.html(x);
+      
+    button.click(function() {
+        var buttonNumber = $(this).html();
+        checkGuess(buttonNumber);
+    });
+
+    $("#button-container").append(button);
+    x = x - 1;
+  } 
+  
+  
+  function generateRandomNumber() {
+     return Math.round(Math.random()*5);
+   }
+
+   function checkGuess(guess) {
+     if(guess == num) {
+       alert("You got it right! Guess the next number!");
+       num = generateRandomNumber();
+     } else {
+       if(guess > num) {
+          alert("Wrong! Guess lower!");
+       } else if(guess < num) {
+          alert("Wrong! Guess higher!");
+       }
+     }
+   }
+  
+  var num = generateRandomNumber();
+</script>
+-->
+
 <article class='slide slide-list'>
   <h2>Exercise 2: Enhance!</h2>
   <p>Style your buttons so they are consistantly sized, have hover effects and fade out (hint: $(this).fadeOut()); after you click on them</p>
-<textarea class='coder-editor' data-save='ws2013-6-guess5'>
+<textarea class='coder-editor coder-editor-instant' data-save='ws2013-6-guess5' >
   <div id='button-container'></div>
   <script>
     // Your code here 
