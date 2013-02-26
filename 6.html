@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - jQuery and Interaction</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+<h1>jQuery and Interaction</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/6.html'>http://cykod.github.com/Web2Spring2013/6.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+      <h3>Cards</h3>
+		</li>
+		<li class="slide">
+      <h3>jQuery</h3>
+		</li>
+		<li class="slide">
+      <h3>Events</h3>
+		</li>
+		<li class="slide">
+      <h3>Arrays</h3>
+		</li>
+		<li class="slide">
+      <h3>Storing Data</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Group Exercise 1: Pick a card</h2>
+  <p>We're going to work on a memory game today, and we're going to need some cards</p>
+  <p>We have two images 'images/card-back.png' and 'images/card-front.png', both 131px by 155px - how do we make a card that flips on hover?</p>
+  <textarea class='coder-editor'>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+  }
+
+ 
+</style>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Content</p></div>
+</div>
+
+  </textarea>
+
+<script type='coder-solution'>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+  }
+
+ .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+  }
+
+  .card .front {
+    z-index:2;
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p { padding-top:50px; }
+
+  .card:hover .front { z-index: 1;  }
+  .card:hover .back  { z-index:2;   }
+</style>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Content</p></div>
+</div>
+</script>
+
+
+
+</article>
+
+<article class='slide slide-list'>
+  <h2>Let's work on that flip</h2>
+  <p>With a couple transitions and '-webkit-backface-visiblity: hidden' we can easily get an animated card flip</p>
+  <p>We need '-webkit-transform-style: preserve-3d' to keep the children flipping correctly.</p>
+  <textarea class='coder-editor'>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .card:hover .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .card:hover .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+</style>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Content</p></div>
+</div>
+
+  </textarea>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Switching from hover to click</h1>
+<h2>We're going to need use some jQuery</h2>
+</article>
+
+<article class='slide slide-list'>
+<h2>Understanding jQuery</h2>
+<p>We call $(selector) which returns a "set", we can then call functions on that set or "chain" calls on that set.</p>
+<p>We'll use $.css, $.animate, $.fadeOut, $.fadeIn, $.addClass, $.removeClass and $.toggleClass. </p>
+<textarea class='coder-editor' >
+<script>
+$(function() {
+    var allBoxes = $(".box");
+    var typeOneBoxes = $(".type1");
+
+    // allBoxes.css("backgroundColor","red");
+    // typeOneBoxes.css("backgroundColor","red");
+});
+</script>
+
+<div class='box type1' id='box1'>1</div>
+<div class='box type1' id='box2'>2</div>
+<div class='box type1' id='box3'>3</div>
+<div class='box type1' id='box4'>4</div>
+
+<div class='box type2' id='box5'>5</div>
+<div class='box type2' id='box6'>6</div>
+<div class='box type2' id='box7'>7</div>
+<div class='box type2' id='box8'>8</div>
+
+<style>
+.type1 { background-color:#5C5; }
+.type2 { background-color:#22A; }
+
+.box { 
+  float:left; width:15%; 
+  margin:20px 2.5%; 
+  text-align:center; 
+  border:1px solid #CCC; 
+  padding:20px 0px;
+  border-radius:5px;
+  box-shadow: 5px 5px 5px #CCC;
+  color:white;
+  font-size:2em;
+}
+
+
+</style>
+</textarea>
+
+
+</article>
+
+<article class='slide slide-list'>
+<h2>Events</h2>
+<p>$.on, $.click, $.dblclick, $.mouseenter, $.mouseleave, $.hover and the magical <em>this</em>.</p>
+<p>We'll use $.css, $.animate, $.fadeOut, $.fadeIn, $.addClass, $.removeClass and $.toggleClass. </p>
+<textarea class='coder-editor' >
+<script>
+$(function() {
+    function eventCallback() {
+      $(".box").fadeOut();
+      // $(this).fadeOut();
+    }
+
+    $(".box").on("click",eventCallback);
+
+});
+</script>
+
+<div class='box type1' id='box1'>1</div>
+<div class='box type1' id='box2'>2</div>
+<div class='box type1' id='box3'>3</div>
+<div class='box type1' id='box4'>4</div>
+
+<div class='box type2' id='box5'>5</div>
+<div class='box type2' id='box6'>6</div>
+<div class='box type2' id='box7'>7</div>
+<div class='box type2' id='box8'>8</div>
+
+<style>
+.type1 { background-color:#5C5; }
+.type2 { background-color:#22A; }
+.typeSelected { background-color:#333; }
+
+.box { 
+  float:left; width:15%; 
+  margin:20px 2.5%; 
+  text-align:center; 
+  border:1px solid #CCC; 
+  padding:20px 0px;
+  border-radius:5px;
+  box-shadow: 5px 5px 5px #CCC;
+  color:white;
+  font-size:2em;
+}
+
+
+</style>
+</textarea>
+
+
+</article>
+
+<article class='slide slide-list'>
+  <h2>Exercise 2: Switch from a hover to a click?</h2>
+  <p>Hint: get rid of hover and add in a new class called ".flip" then toggle that class on a click.</p>
+  <textarea class='coder-editor'>
+<script>
+$(function() {
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .card:hover .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .card:hover .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Card 1</p></div>
+</div>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Card 2</p></div>
+</div>
+
+<div class='card'>
+  <div class='front'></div>
+  <div class='back'><p>Card 3</p></div>
+</div>
+
+</textarea>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>What about a whole bunch of cards?</h1>
+  <h2 class='slide' >How about a loop?</h2>
+</article>
+
+<article class='slide slide-list'>
+  <h2>40 cards</h2>
+  <textarea class='coder-editor'>
+<script>
+$(function() {
+    var x = 0;
+    while(x < 40) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(x);
+
+      card.on("click",function() {
+        $(this).toggleClass("flip");
+      });
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>What if we want words?</h1>
+  <h2 class='slide' >Enter the array...</h2>
+</article>
+
+<article class='slide slide-list'>
+<h2>Arrays</h2>
+<ul>
+	<li class="slide">
+		<h3>Stores an “array” of values.</h3>
+	</li>
+	<li class="slide">
+		<h3>Usually created with the bracket [ ] operator: </h3>
+                <pre class='prettyprint'>
+var arr = [ "Apple", "Pear", "Cherry", "Lemon" ];
+</pre>
+	</li>
+	<li class="slide">
+          <h3>Pull out a value using square brackets [] starting at 0:</h3>
+              <pre class='prettyprint'>
+arr[0] // "Apple"
+arr[1] // "Pear"
+</pre>
+	</li>
+	<li class="slide">
+		<h3>get the number of entries with .length</h3>
+                <pre class='prettyprint'>
+arr.length // 4                
+</pre>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Playing with arrays</h2>
+<p>direct indexing, variable indexing, loops</p>
+<textarea class='coder-editor'>
+<script>
+  var myArray = [ "Apple", "Pear", "Cherry", "Lemon" ];
+
+  alert(myArray[0]);
+</script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Exercise 3: Add card values from an array</h2>
+  <textarea class='coder-editor' data-save='webs135-exercise3'>
+<script>
+var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
+              "Dog", "Bear", "Llama", "Llama", "Pig" ];
+
+$(function() {
+    var x = 0;
+    while(x < 40) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(x);
+
+      card.on("click",function() {
+        $(this).toggleClass("flip");
+      });
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+  <h2>Memory!</h2>
+<ul>
+	<li>
+  <h3>How to we play animal card memory?</h3>
+	</li>
+	<li class="slide">
+  <h3>First card you click on flips over.</h3>
+	</li>
+	<li class="slide">
+  <h3>Second card you click on flips over.</h3>
+	</li>
+	<li class="slide">
+  <h3>If they are the same, they both stay flipped.</h3>
+	</li>
+	<li class="slide">
+  <h3>If they aren't the same, they both, after a brief delay, flip back over.</h3>
+	</li>
+</ul>
+</article>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Group Exercise 4: Getting the value of the current card.</h2>
+  <p> 
+    Bonus questions: What if we need to know what # card?
+  </p>
+  <textarea class='coder-editor'>
+<script>
+var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
+              "Dog", "Bear", "Llama", "Llama", "Pig" ];
+
+function selectCard() {
+  var card = $(this);
+  card.toggleClass("flip");
+  alert("What goes here?");
+}
+
+$(function() {
+    var x = 0;
+    while(x < cards.length) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(cards[x]);
+
+      card.on("click",selectCard);
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+
+<article class='slide slide-subhead'>
+  <h1>Sorta painful...</h1>
+  <h2 class='slide' >What if we could just assign some data to the card... </h2>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>jQuery.data</h2>
+<ul>
+	<li class="slide">
+  <h3>Can store extra values with a tag</h3>
+	</li>
+	<li class="slide">
+  <h3>Setting a piece of data</h3>
+                <pre class='prettyprint'>
+$(element).data("animal","Pig");
+</pre>
+	</li>
+	<li class="slide">
+  <h3>Retrieving a piece of data:</h3>
+              <pre class='prettyprint'>
+$(element).data("animal");
+// "Pig"
+</pre>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Group Exercise 5: Assigning Data to cards</h2>
+  <textarea class='coder-editor'>
+<script>
+var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
+              "Dog", "Bear", "Llama", "Llama", "Pig" ];
+
+function selectCard() {
+  var card = $(this);
+  card.toggleClass("flip");
+}
+
+$(function() {
+    var x = 0;
+    while(x < cards.length) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(cards[x]);
+
+      card.on("click",selectCard);
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Exercise 6: Making it a game</h2>
+  <p>Bonus exercise: keep track of the number of guesses and the number of cards left.</p>
+  <textarea class='coder-editor' data-save='webs2013-exervisememer'>
+<script>
+var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
+              "Dog", "Bear", "Llama", "Llama", "Pig" ];
+
+var cardOne = null;
+var cardTwo = null;
+
+function selectCard() {
+  var card = $(this);
+
+  if(!cardOne) {
+    firstCard(card);
+  } else if(!cardTwo) {
+    secondCard(card);
+  }
+}
+
+
+function firstCard(card) {
+  // Flip the first card and assign it to cardOne
+}
+
+function secondCard(card) {
+  // Flip the second card and assign it to cardTwo
+
+  // Get the two card values
+
+  // Check if they are the same...
+    // If they are clear both cards
+
+  // Otherwise...
+    // Flip them both back over after 1 second
+}
+
+function flipBothCards() {
+  cardOne.removeClass("flip");
+  cardTwo.removeClass("flip");
+  setTimeout(clearBothCards,500);
+}
+
+function clearBothCards() {
+  cardOne = null;
+  cardTwo = null;
+}
+
+
+$(function() {
+    var x = 0;
+    while(x < cards.length) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(cards[x]);
+      card.data("animal",cards[x]);
+
+      card.on("click",selectCard);
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+
+
+<article class='slide slide-list'>
+  <h2>Final Game</h2>
+  <textarea class='coder-editor'>
+<script>
+var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
+              "Dog", "Bear", "Llama", "Llama", "Pig" ];
+var cardsLeft = cards.length;
+var guesses = 0;
+
+var cardOne = null;
+var cardTwo = null;
+
+function selectCard() {
+  var card = $(this);
+
+  if(card.data("correct")) return;
+
+  if(!cardOne) {
+    firstCard(card);
+  } else if(!cardTwo) {
+    secondCard(card);
+  }
+}
+
+function firstCard(card) {
+  card.addClass("flip");
+  cardOne = card;
+
+  guesses++;
+  displayCount();
+}
+
+function secondCard(card) {
+  if(card == cardOne) return; 
+
+  guesses++;
+  displayCount();
+
+  cardTwo = card;
+
+  var cardOneValue = cardOne.data("animal");
+  var cardTwoValue = cardTwo.data("animal");
+
+  cardTwo.addClass("flip");
+
+  if(cardOneValue == cardTwoValue) {
+    cardOne.data("correct",true);
+    cardTwo.data("correct",true);
+    cardsLeft -= 2;
+    displayCount();
+    clearBothCards();
+  } else {
+    setTimeout(flipBothCards,1000);
+  }
+}
+
+function flipBothCards() {
+  cardOne.removeClass("flip");
+  cardTwo.removeClass("flip");
+  setTimeout(clearBothCards,500);
+}
+
+function clearBothCards() {
+  cardOne = null;
+  cardTwo = null;
+}
+
+
+function displayCount() {
+  $("#guesses").html(guesses);
+  $("#cardsLeft").html(cardsLeft);
+
+  if(cardsLeft == 0) { alert("You Win!"); }
+}
+
+
+$(function() {
+    displayCount();
+
+    var x = 0;
+    while(x < cards.length) {
+      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
+
+      card.find("p").html(cards[x]);
+      card.data("animal",cards[x]);
+      card.data("number",x);
+
+      card.on("click",selectCard);
+
+      $("#card-container").append(card);
+      x++;
+    }
+  // Event handler
+});
+</script>
+<style>
+  .card { 
+    position:relative;
+    width:131px; 
+    height:155px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:10px;
+  }
+
+  .card > div {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:131px;
+    height:155px;
+    text-align:center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .4s ease-in-out;
+  }
+
+  .card .front {
+    position:relative;
+    z-index:2;
+    -webkit-transform: rotate(0deg) rotateY(0deg);
+    background:url(images/card-back.png) no-repeat left top;
+  }
+
+  .card .back {
+    z-index:1;
+    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+    background:url(images/card-front.png) no-repeat left top;
+  }
+
+  .card .back p {
+    padding-top:50px;
+  }
+
+  .flip .front {
+     z-index: 1;
+     -webkit-transform: rotateY(180deg);
+  }
+
+  .flip .back {
+    z-index:2;
+    -webkit-transform: rotateY(0deg);
+  }
+
+</style>
+
+Guesses: <span id='guesses'></span>
+Cards Left: <span id='cardsLeft'></span>
+<div id='card-container'></div>
+
+</textarea>
+</article>
+
+
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+    <h3>LJS 4-6</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Design (in Illustrator or Photoshop) for your interactive website</h3></li>
+		</ul>
+</ul>	
+	
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+    <h3>LJS 7,8 10</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Initial Static HTML Chop for Website</h3>
+		</ul>
+</ul>	
+	
+</article>
+
+
+
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
