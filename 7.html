@@ -53,7 +53,7 @@
 
 
 <article class='slide slide-subhead'>
-<h1>jQuery and Interaction</h1>
+<h1>(More) jQuery and Interaction</h1>
 
 <p>
 <a href='http://cykod.github.com/Web2Spring2013/6.html'>http://cykod.github.com/Web2Spring2013/6.html</a>
@@ -80,6 +80,13 @@
 		</li>
 	</ol>
 </article>
+
+<article class='slide slide-subhead'>
+<h1>jQuery "Recipes"</h1>
+<h2>This class: let's think about "Where can this be used?"</h2>
+</article>
+
+
 
 
 <article class='slide slide-list'>
@@ -172,6 +179,55 @@ $(function() {
 </textarea>
 </article>
 
+
+<article class='slide slide-list'>
+<h2>jQuery each</h2>
+<p>Sometimes we want to do something to a specific element, use $.each + $(this) </p>
+<p>Where useful?</p>
+<textarea class='coder-editor' >
+<script>
+$(function() {
+    $(".type1").each(function() {
+      var $element = $(this),
+          value = $element.html();
+
+      $element.html("I'm a box!");
+    });  
+
+});
+</script>
+
+<div class='box type1' id='box1'>1</div>
+<div class='box type1' id='box2'>2</div>
+<div class='box type1' id='box3'>3</div>
+<div class='box type1' id='box4'>4</div>
+
+<div class='box type2' id='box5'>5</div>
+<div class='box type2' id='box6'>6</div>
+<div class='box type2' id='box7'>7</div>
+<div class='box type2' id='box8'>8</div>
+
+<style>
+.type1 { background-color:#5C5; }
+.type2 { background-color:#22A; }
+
+.box { 
+  float:left; width:15%; 
+  margin:20px 2.5%; 
+  text-align:center; 
+  border:1px solid #CCC; 
+  padding:20px 0px;
+  border-radius:5px;
+  box-shadow: 5px 5px 5px #CCC;
+  color:white;
+  font-size:2em;
+}
+
+</style>
+</textarea>
+</article>
+
+
 <article class='slide slide-list'>
 <h2>Events </h2>
 <p>$.on, $.click, $.dblclick, $.mouseenter, $.mouseleave, $.hover and the magical <em>this</em>.</p>
@@ -224,6 +280,7 @@ $(function() {
 <article class='slide slide-list'>
 <h2>Exercise 1: Increment a counter by 1 when you click on a button</h2>
 <textarea class='coder-editor' data-save='web2s0213-7-1' >
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
 <script>
 $(function() {
     var currentCount = 0;
@@ -236,99 +293,12 @@ $(function() {
 
 });
 </script>
-<div>
+<div class='well'>
   Counter <span id='counter'>0</span>
 </div>
-<button id='buttonToClick'>Click Me</button>
+<button class='btn' id='buttonToClick'>Click Me</button>
 
 </textarea>
-</article>
-
-<article class='slide slide-subhead'>
-  <h1>What about a whole bunch of cards?</h1>
-  <h2 class='slide' >How about a loop?</h2>
-</article>
-
-<article class='slide slide-list'>
-  <h2>40 cards</h2>
-  <textarea class='coder-editor'>
-<script>
-$(function() {
-    var x = 0;
-    while(x < 40) {
-      var card = $("<div class='card'><div class='front'></div><div class='back'><p></p></div></div>");
-
-      card.find("p").html(x);
-
-      card.on("click",function() {
-        $(this).toggleClass("flip");
-      });
-
-      $("#card-container").append(card);
-      x++;
-    }
-  // Event handler
-});
-</script>
-<style>
-  .card { 
-    position:relative;
-    width:131px; 
-    height:155px;
-    float:left;
-    margin-right:20px;
-    margin-bottom:10px;
-  }
-
-  .card > div {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:131px;
-    height:155px;
-    text-align:center;
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -webkit-transition: -webkit-transform .4s ease-in-out;
-  }
-
-  .card .front {
-    position:relative;
-    z-index:2;
-    -webkit-transform: rotate(0deg) rotateY(0deg);
-    background:url(images/card-back.png) no-repeat left top;
-  }
-
-  .card .back {
-    z-index:1;
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
-    background:url(images/card-front.png) no-repeat left top;
-  }
-
-  .card .back p {
-    padding-top:50px;
-  }
-
-  .flip .front {
-     z-index: 1;
-     -webkit-transform: rotateY(180deg);
-  }
-
-  .flip .back {
-    z-index:2;
-    -webkit-transform: rotateY(0deg);
-  }
-
-</style>
-
-<div id='card-container'></div>
-
-</textarea>
-</article>
-
-<article class='slide slide-subhead'>
-  <h1>What if we want words?</h1>
-  <h2 class='slide' >Enter the array...</h2>
 </article>
 
 <article class='slide slide-list'>
@@ -679,14 +649,20 @@ $(function() {
 <p>Let's make a quick app that lets us figure out how many calories we ate today</p>
 <textarea class='coder-editor' data-save="webfdsf-7-3" >
  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+<div class='well'>
+  Calories: <span id='calorie-counter'>0</span>
+</div>
+
+<div class='pull-right'>
+  <button id='reset-button' class='btn btn-primary'>Reset</button>
+</div>
+
 <div id='foods'>
  <button class='btn' data-calories='800'>Pizza</button>
  <button class='btn' data-calories='400'>Donuts</button>
  <button class='btn' data-calories='350'>Salad</button>
 </div>
-<br/>
-Calories: <span id='calorie-counter'>0</span>
-<button id='reset-button' class='btn btn-primary'>Reset</button>
+
 
 
 <script>
@@ -707,7 +683,7 @@ $(function() {
 
 <article class='slide slide-list'>
   <h2>Exercise 4: Making it a game</h2>
-  <p>Bonus exercise: keep track of the number of guesses and the number of cards left.</p>
+  <p>Bonus exercise: keep track of the number of guesses and the number of cards left. Pull in underscore.js and use _.shuffle to shuffle the cards.</p>
   <textarea class='coder-editor' data-save='webs2013-exervisememer'>
 <script>
 var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
@@ -832,9 +808,12 @@ $(function() {
 <article class='slide slide-list'>
   <h2>Final Game</h2>
   <textarea class='coder-editor'>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
 <script>
 var cards = [ "Cat", "Dog",  "Bear",  "Cat",   "Pig", 
               "Dog", "Bear", "Llama", "Llama", "Pig" ];
+cards = _.shuffle(cards);
+
 var cardsLeft = cards.length;
 var guesses = 0;
 
@@ -984,39 +963,23 @@ Cards Left: <span id='cardsLeft'></span>
 
 
 
-
 <article class='slide slide-homework'>
 <h2>Homework</h2>
 <h3 class='slide'>Reading</h3>
 	<ul class='slide'>	
 		<li>
-    <h3>LJS 4-6</h3>
+    <h3>LJS 9, 11</h3>
 		</li>
 	</ul>
 	
 	<h3 class='slide'>Coding</h3>
        <ul class='slide'>
 			<li>
-      <h3>Design (in Illustrator or Photoshop) for your interactive website</h3></li>
-		</ul>
-</ul>	
-	
-</article>
-
-
-<article class='slide slide-homework'>
-<h2>Homework</h2>
-<h3 class='slide'>Reading</h3>
-	<ul class='slide'>	
-		<li>
-    <h3>LJS 7,8 10</h3>
-		</li>
-	</ul>
-	
-	<h3 class='slide'>Coding</h3>
-       <ul class='slide'>
-			<li>
-      <h3>Initial Static HTML Chop for Website</h3>
+      <h3>Work on Interactive Website</h3>
+      </li>
+      <li>
+        <h3>If you have a question on how to do something - post it to the group!</h3>
+        </li>
 		</ul>
 </ul>	
 	
