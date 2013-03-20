@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - JSON and Data</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+<h1>JSON and Data</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/8.html'>http://cykod.github.com/Web2Spring2013/8.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+      <h3>Review Interactive Websites</h3>
+		</li>
+		<li class="slide">
+      <h3>Introduction to Objects</h3>
+		</li>
+		<li class="slide">
+      <h3>Ajax</h3>
+		</li>
+		<li class="slide">
+      <h3>Displaying Data</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+<article class='slide slide-list'>
+<h2>Objects</h2>
+<ul>
+	<li class="slide">
+		<h3>A way to store data and methods together. </h3>
+	</li>
+	<li class="slide">
+		<h3>Array was an example of a built in object</h3>
+	</li>
+	<li class="slide">
+          <h3>Can create with JSON notation:</h3>
+          <pre class='prettyprint'>
+var obj = { a: 1, b: 2 };
+</pre>
+	</li>
+	<li class="slide">
+		<h3>Access the same as arrays - with square brackets.</h3>
+          <pre class='prettyprint'>
+obj['a'] // 1 
+obj['b'] // 2
+</pre>
+
+	</li>
+	<li class="slide">
+		<h3>Can also access with the dot operator</h3>
+          <pre class='prettyprint'>
+obj.a // 1
+obj.b // 2
+</pre>
+	</li>
+        <li class="slide">
+        	<h3>Can also have functions as properties</h3>
+        </li>
+        <li class="slide">
+        	<h3>Those functions can use the this property when called</h3>
+        </li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h2>Objects</h2>
+
+<textarea class='coder-editor'>
+  <script>
+    var myObject = { 'a' : 10,
+                     'b' : 20,
+                     'c' : 30
+                   };
+
+   // Try pulling out various pieces of myObject using
+   // both square brackets and the dot operator
+
+    alert(myObject.a);
+
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Arrays in Objects</h2>
+
+<textarea class='coder-editor'>
+<script>
+var myObject = { 'fruits'     : [ 'apples','pears','oranges' ],
+                 'vegetables' : [ 'brocolli', 'kale', 'tomato', 'carrot' ],
+                 'grains'     : [ 'wheat', 'corn' ]
+               };
+
+alert(myObject.fruits[0]);
+</script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Objects in Arrays</h2>
+
+<textarea class='coder-editor'>
+<script>
+var myArray = [ { name: 'frank', email: 'franker@aol.com' },
+                { name: 'bob',   email: 'bob@gmail.com' },
+                { name: 'alice', email: 'alice@hotmail.com' }
+              ];
+
+alert(myArray[0].name);
+</script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Objects in Arrays in Objects in ...</h2>
+
+<textarea class='coder-editor'>
+<script>
+var myObject = { people: [ { name: 'frank', email: 'franker@aol.com' },
+                           { name: 'bob',   email: 'bob@gmail.com' },
+                           { name: 'alice', email: 'alice@hotmail.com' } ],
+                 foods: { 'fruits'     : [ 'apples','pears','oranges' ],
+                          'vegetables' : [ 'brocolli', 'kale', 'tomato', 'carrot' ],
+                          'grains'     : [ 'wheat', 'corn' ]
+                        }
+               };
+
+alert(myObject.people[0].name)
+</script>
+</textarea>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Where does data come from?</h1>
+  <h2 class='slide' >From Us or from APIs</h2>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>How do we access it?</h1>
+<h2 class='slide' >Generally via Ajax (or JSONp)</h2>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Ajax</h1>
+</article>
+
+
+<article class='slide slide-list'>
+ <h2>Ajax</h2>
+ <p><a href='http://api.jquery.com/jQuery.ajax/'>$.ajax</a>, $.get, $.post, $.getJSON </p>
+<textarea class='coder-editor'>
+<script>
+$(function() {
+
+  var ajax = $.get("names.json",function(data) {
+    console.log(data);
+  });
+
+});
+
+</script>
+</textarea>
+ </article>
+
+<article class='slide slide-list'>
+  <h1>Same Domain Origin policy</h1>
+<ul>
+	<li>
+  <h3>You can't just pull data form anywhere</h3>
+	</li>
+	<li>
+  <h3>It has to be on the same domain</h3>
+	</li>
+	<li>
+  <h3>And it doesn't work from file:// URLS</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+  <h1>JSONp (JSON with padding)</h1>
+<ul>
+	<li>
+  <h3>Allows us to pull data with script tags</h3>
+	</li>
+	<li>
+  <h3>Not affected by the same origin policy</h3>
+	</li>
+	<li>
+  <h3>Must be supported via the API</h3>
+	</li>
+	<li>
+  <h3>Implementation is API specific, but often uses callback=?</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+  <h1>Real Life Example</h1>
+  <h2><a href='https://api.instagram.com/v1/media/popular?client_id=1307115cd17a42bfa24625574c271336'>Instagram Popular Feed Data</a> <br/>(Using <a href='https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc'>JSONView</a>)</h2>
+</article>
+
+
+<article class='slide slide-subhead'>
+  <h1>How do we get data onscreen?</h1>
+  <h2 class='slide' >We can use a little jQuery and a loop</h2>
+</article>
+
+<article class='slide slide-list'>
+ <h2>Group Exercise 1: Back to names</h2>
+ <p>How do we add these to a list onto the page?</p>
+<textarea class='coder-editor' data-save='ws2013-8-1'>
+<script>
+$(function() {
+
+  var ajax = $.get("names.json",function(data) {
+    var i = 0;
+    while(i < data.names.length) {
+      var name = data.names[i];
+      console.log(name)
+      i++;
+    }
+    
+  });
+
+});
+</script>
+<ul id='container'></ul>
+</textarea>
+</article>
+
+<article class='slide slide-image'>
+<h1>Final Exercise: Instagram<h1>
+<img src='images/instagram.jpg'/>
+</article>
+
+
+<article class='slide slide-list'>
+ <h2>Exercise 2: Instagramming it up</h2>
+ <p>We want to just add a big grid of images onto the page with the name of the user and the number of likes below it. Step 1: Get a url of the first photo.</p>
+<textarea class='coder-editor'  data-save='ws2013-8-2'>
+<script>
+$(function() {
+
+  // Normally we'd hit the API directly, but I don't want to run out of requests
+  var ajax = $.get("instagram.json",function(response) {
+    console.log(response);
+
+    // Figure out and uncomment each line below
+
+    // Get the data for the first photo
+    //var firstPhoto = WHAT? // <-- We want only the first photo
+
+    // console.log(firstPhoto);
+
+    // Find the URL of the thumbnail of the first photo
+    // alert(what goes here?)
+
+    // Find the user name of the first photo
+    // alert(what goes here?)
+
+    // Find the number of likes of the first photo
+    // alert(what goes here?)
+  });
+
+});
+</script>
+<ul id='container'></ul>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+ <h2>Exercise 3: Looping over each photo</h2>
+ <p>We want to pull out that data for each photo, log it to the console.</p>
+<textarea class='coder-editor'  data-save='ws2013-8-3'>
+<script>
+$(function() {
+
+  // Normally we'd hit the API directly, but I don't want to run out of requests
+  var ajax = $.get("instagram.json",function(response) {
+    var i =0;
+    while(i < response.data.length) {
+      var photo = response.data[i];
+
+      // Log the thumbnail, username and number of likes
+
+      i++;
+    }
+  });
+
+});
+</script>
+<ul id='container'></ul>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Exercise 4: Add the thumnails on the page</h2>
+<p>Add each of the thumnails onto the page as shown in the example one below. Extra credit if you make the URL linkable</p>
+<textarea class='coder-editor' >
+<script>
+$(function() {
+
+  var ajax = $.get("instagram.json",function(response) {
+    var i =0;
+    while(i < response.data.length) {
+      var photo = response.data[i];
+
+      var li = $("<li>");
+      // Create and add an image tag, username div and likes div to the li
+      $("#container").append(li);
+
+      i++;
+    }
+
+  });
+
+});
+</script>
+
+
+
+
+<ul id='container'>
+  <li><img src="http://distilleryimage5.s3.amazonaws.com/2ef47960915611e2be6a22000aa80096_5.jpg"/>
+      <div class='username'>jennyhendra</div>
+      <div class='likes'>4000</div>
+  </li>
+</ul>
+
+
+
+
+
+<style>
+  body { font-family:arial; font-size:16px; }
+  * { -webkit-box-sizing: border-box; box-sizing: border-box; }
+  li {
+   float:left;
+   width:150px;
+   display:block;
+   list-style:none;
+   height:150px;
+   overflow:hidden;
+   position:relative;
+  }
+
+  li .username { position:absolute; bottom:0px; width:100%; background-color:rgba(0,0,0,0.7); color:white; padding:5px; }
+  li .likes { position:absolute; top:-6px; right:-18px; padding:15px 0px 5px 0px; width:60px; text-align:center; font-size:10px;  background-color:rgba(255,255,255,0.8); -webkit-transform:rotate(45deg);}
+  
+</style>
+</textarea>
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	<ul class='slide'>	
+		<li>
+    <h3>LJS 12</h3>
+		</li>
+	</ul>
+	
+	<h3 class='slide'>Coding</h3>
+       <ul class='slide'>
+			<li>
+      <h3>No class next week (Advising Day) - Finish your interactive website!</h3>
+      </li>
+      <li>
+        <h3>If you have a question on how to do something - post it to the group! With a link and specifics</h3>
+        </li>
+		</ul>
+</ul>	
+</article>
+
+<article class='slide slide-list'>
+  <h2>Completed Exercise</h2>
+<textarea class='coder-editor' >
+<script>
+$(function() {
+
+  var ajax = $.get("instagram.json",function(response) {
+     var i =0;
+    while(i < response.data.length) {
+      var photo = response.data[i];
+      
+      var li = $("<li>");
+      var img = $("<img>").attr('src',photo.images.thumbnail.url);
+      var username = $("<div class='username'>").html(photo.user.username);
+      var likes = $("<div class='likes'>").html(photo.likes.count);
+      
+      li.append(img).append(username).append(likes);
+      $("#container").append(li);
+      i++;
+    }
+  });
+
+});
+</script>
+
+
+
+
+<ul id='container'>
+</ul>
+
+
+
+
+
+<style>
+  body { font-family:arial; font-size:16px; }
+  * { -webkit-box-sizing: border-box; box-sizing: border-box; }
+  li {
+   float:left;
+   width:150px;
+   display:block;
+   list-style:none;
+   height:150px;
+   overflow:hidden;
+   position:relative;
+  }
+
+  li .username { position:absolute; bottom:0px; width:100%; background-color:rgba(0,0,0,0.7); color:white; padding:5px; }
+  li .likes { position:absolute; top:-6px; right:-18px; padding:15px 0px 5px 0px; width:60px; text-align:center; font-size:10px;  background-color:rgba(255,255,255,0.8); -webkit-transform:rotate(45deg);}
+  
+</style>
+</textarea>
+</article>
+
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
