@@ -70,10 +70,13 @@
       <h3>Bar Chart with CSS3 Elements</h3>
 		</li>
 		<li class="slide">
+      <h3>Making it interactive</h3>
+		</li>
+		<li class="slide">
       <h3>Introduction to SVG</h3>
 		</li>
 		<li class="slide">
-      <h3>Introduction to D3</h3>
+      <h3>Datasets</h3>
 		</li>
 		<li class="slide">
       <h3>Homework</h3>
@@ -103,7 +106,8 @@
 <h1>The Good</h1>
 <h2>
   <a href='http://elections.nytimes.com/2012/results/president/scenarios'>Paths to the White House</a><br/>
-  <a href='http://hint.fm/wind/'>Wind Map</a>
+  <a href='http://hint.fm/wind/'>Wind Map</a><br/>
+  <a href='http://notabilia.net/'>Notabilia</a>
 </h2>
 </article>
 <article class='slide slide-subhead'>
@@ -114,9 +118,13 @@
 </h2>
 </article>
 
+<article class='slide slide-subhead'>
+<h1>Minimum Threshold<br/>for DataVis?</h1>
+</article>
+
 
 <article class='slide slide-list'>
-<h1>Bar Chart with CSS3 Elements</h1>
+<h1>Bar Chart with CSS3 Elements: Exercise 1</h1>
 <ul>
 	<li>
   <h3>You already know enough to create an interactive Bar Chart with jQuery and CSS3</h3>
@@ -128,9 +136,77 @@
   <h3>Create and link to a style.css, link to jQuery and an empty datavis.js file</h3>
 	</li>
 	<li>
-  <h3>Create and link to a style.css, link to jQuery and an empty datavis.js file</h3>
+  <h3>Add a paragraph on the page with jQuery in datavis.js that says "My Visualization Here"</h3>
 	</li>
 </ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>Bar Chart with CSS3 Elements: Exercise 2</h1>
+<ul>
+	<li>
+		<h3>Load the data in <a href='salaries.js'>salaries.js</a></h3>
+	</li>
+	<li>
+		<h3>Add each row as a div in the page with the name and salary</h2>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>Bar Chart with CSS3 Elements: Exercise 3</h1>
+<ul>
+	<li>
+		<h3>Change the salary into a div element with a width relative to salary</h3>
+	</li>
+	<li>
+		<h3>Format the bar chart</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h1>Bar Chart with CSS3 Elements: Exercise 4</h1>
+<ul>
+	<li>
+		<h3>Let's make it interactive: add charts to aggregate by different columns</h3>
+	</li>
+	<li>
+		<h3>Show those columns</h3>
+	</li>
+</ul>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h2>SVG</h2>
+
+<textarea class='coder-editor'>
+<svg id="mysvg" xmlns="http://www.w3.org/2000/svg" version="1.1" 
+     width="400" height="400" 
+     viewBox="0 0 150 150" >
+  <g transform="rotate(-5,75,75)">
+    <rect id="rect" x="50" y="50" rx="5" ry="5" width="50" height="50" fill="black" />
+    <circle id="circle" cx="75" cy="75" r="10" fill="#CCC"/>
+    <path d="M 50 50 L 75 50 L 75 0 z"
+          fill="black" stroke="#CCC" stroke-width="2"/>
+    <polygon points="75,50 100,50 75,0" 
+          fill="#CCC" stroke="black" stroke-width="2"/>
+  </g>
+  <image xlink:href='images/card-back.png' 
+     width='32' height='32' 
+     transform="translate(75,75)"
+     onclick="alert('Card Click');"Click
+     ontouchstart="alert('Card Touch');" />
+
+  <text x="75" y="125" text-anchor="middle"
+        font-family="Verdana" font-size="10" fill="black" >
+    Here's some text
+  </text>
+</svg>
+</textarea>
 </article>
 
 
