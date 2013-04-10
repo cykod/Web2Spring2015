@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - DataVis</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+  <h1>(Interactive)<br/> Data Visualization</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/10.html'>http://cykod.github.com/Web2Spring2013/10.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+      <h3>What is DataVis?</h3>
+		</li>
+		<li class="slide">
+      <h3>Bar Chart with CSS3 Elements</h3>
+		</li>
+		<li class="slide">
+      <h3>Introduction to SVG</h3>
+		</li>
+		<li class="slide">
+      <h3>Introduction to D3</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+<article class='slide slide-list'>
+<h2>DataVis</h2>
+<ul>
+	<li class="slide">
+  <h3>What?</h3>
+	</li>
+	<li class="slide">
+  <h3>Why?</h3>
+	</li>
+	<li class="slide">
+  <h3>Why Interactive?</h3>
+	</li>
+	<li class="slide">
+  <h3>vs. Infographic</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>The Good</h1>
+<h2>
+  <a href='http://elections.nytimes.com/2012/results/president/scenarios'>Paths to the White House</a><br/>
+  <a href='http://hint.fm/wind/'>Wind Map</a>
+</h2>
+</article>
+<article class='slide slide-subhead'>
+<h1>The Bad</h1>
+<h2>
+  <a href='http://www.bostonglobe.com/metro/2013/03/30/spotlight/9eVWW7Y6RaOIqII62n2XlI/igraphic.html'>Battle Against the Numbers</a><br/>
+  <a href='http://www.bostonglobe.com/metro/2013/04/01/spotlight/IkU7kjxSy2d1N8eYhDTBaL/igraphic.html'>One Cab Driver's Shift</a>
+</h2>
+</article>
+
+
+<article class='slide slide-list'>
+<h1>Bar Chart with CSS3 Elements</h1>
+<ul>
+	<li>
+  <h3>You already know enough to create an interactive Bar Chart with jQuery and CSS3</h3>
+	</li>
+	<li>
+  <h3>Create a new folder on your desktop called BarChart</h3>
+	</li>
+	<li>
+  <h3>Create and link to a style.css, link to jQuery and an empty datavis.js file</h3>
+	</li>
+	<li>
+  <h3>Create and link to a style.css, link to jQuery and an empty datavis.js file</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-subhead'>
+  <h1>Boston Data Sets</h1>
+  <h2><a href='https://data.cityofboston.gov/'>https://data.cityofboston.gov/</a></h2>
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+<h3 class='slide'>Reading</h3>
+	
+	<h3 class='slide'>Final Data Vis Project</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Come up with a small data set
+      </li>
+      <li>
+        <h3>If you have a question on how to do something - post it to the group! With a link and specifics</h3>
+        </li>
+		</ul>
+</ul>	
+</article>
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
