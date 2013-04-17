@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - DataVis Round #2</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+  <h1>Data Visualization Round 2</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/11.html'>http://cykod.github.com/Web2Spring2013/11.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+    <h3>Review Homework</h3>
+		</li>
+		<li class="slide">
+    <h3>Last week recap</h3>
+		</li>
+		<li class="slide">
+    <h3>Process</h3>
+		</li>
+		<li class="slide">
+    <h3>2D Data</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+<article class='slide slide-list'>
+<h2>Recap</h2>
+
+<textarea class='coder-editor'>
+  <script src='salaries.js'></script>
+
+  <link href='BarChart/style.css' rel='stylesheet'/>
+  <script>
+$(function() {
+  // Let's find the Pattern:
+
+  // Here's our loop
+  var i = 0;
+  while(i < data.length) {
+    // Here's our data for 1 person
+    var person = data[i];
+
+    // Here's our individual data for each person
+    var name = person[8];
+    var salary = parseInt(person[11],10);
+
+    // Here's some calculation we need for display
+    var maxSalary = 266750;
+    var fraction = salary / maxSalary; 
+    var salaryWidth = fraction * 500;
+
+    // Let's create our containing DOM element
+    var row = $("<div>").addClass("row");
+
+    // And now nest any child elements
+    var nameDiv = $("<div>").addClass("name").text(name)
+                   .appendTo(row);
+
+    var salaryDiv = $("<div>").addClass("salary")
+                    .css({ width: salaryWidth})
+                    .appendTo(row);
+
+
+    // Finally add that element to the page
+    $("body").append(row);
+
+    // Don't forget to increment our loop
+    i = i + 1;
+  }
+
+});
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h2>Crime, Crime never changes.</h2>
+
+<textarea class='coder-editor'  data-save="crimer">
+  <script src='crime.js'></script>
+
+  <link href='BarChart/style.css' rel='stylesheet'/>
+  <script>
+$(function() {
+  // Let's find the Pattern:
+
+  // Here's our loop
+  var i = 0;
+  while(i < data.length) {
+    // Here's our data for 1 person
+    var neighborhood = data[i];
+
+    console.log(neighborhood);
+
+    // Don't forget to increment our loop
+    i = i + 1;
+  }
+
+});
+  </script>
+</textarea>
+</article>
+
+<article class='slide slide-subhead'>
+<h1>Process</h1>
+<p>You need to look to the data for answers</p>
+</article>
+
+
+
+<article class='slide slide-list'>
+<h2>Crime List</h2>
+
+<textarea class='coder-editor'>
+<script src='crimelist.js'></script>
+
+<link href='BarChart/style.css' rel='stylesheet'/>
+<script>
+$(function() {
+  console.log(crimes);
+});
+</script>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h1>Scatter Plot: Exercise 1</h1>
+<ul>
+	<li>
+  <h3>From the Crime List Data, figure out how to get the data for the crime code, the crime code description, the neighborhood, and the x and y location. <a href='https://data.cityofboston.gov/Public-Safety/Crime-Incident-Reports/7cdf-6fgx'>Online Listing</a></h3>
+	</li>
+	<li>
+  <h3>Save the crime code, x and y locations to separate variables</h3>
+	</li>
+	<li>
+  <h3>Loop over the data and add the crime code onto the page, one row at a time</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h1>Exercise 2 - min and max X and Y</h1>
+<ul>
+	<li>
+  <h3>Add another loop above the first one (cut and paste)</h3>
+	</li>
+	<li>
+  <h3>Define variables for the minX, minY, maxX and maxY</h3>
+  <code><pre>
+var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;</code></pre>
+  <p>Any guesses why we start with Infinity and -Infinity?</p>
+	</li>
+	<li>
+  <h3>Calculate the min and max X and Y values (x shown below, add in y)</h3>
+  <code><pre>
+if(x < minX) { minX = x; }
+if(x > maxX) { maxX = x; }</pre></code>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h1>Exercise 3 - add in dots</h1>
+<ul>
+	<li>
+  <h3>Figure out the screen x and y location of each dot, given a 500 by 500 area</h3>
+<code><pre>
+var diffX = maxX - minX;
+var screenX =  (x - minX) / diffX * 500;</pre></code>
+	</li>
+	<li>
+  <h3>Style each element into a small dot and put it on the page with left and top</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+  <h1>Exercise 4 - style it</h1>
+<ul>
+	<li>
+  <h3>Style each dot with an opacity so we get a crude "heatmap"</h3>
+	</li>
+	<li>
+  <h3>Extra credit: Add in mouseovers that show up when you mouse over a dot</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+       <ul class='slide'>
+			<li>
+      <h3>Design your visualization</h3>
+      </li>
+			<li>
+      <h3>Homework: if you didn't add the mouseovers, do it for homework. Figure out an interesting visualization of crime codes.</h3>
+      </li>
+      <li>
+        <h3>If you have a question on how to do something - post it to the group! With a link and specifics</h3>
+        </li>
+		</ul>
+</article>
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
