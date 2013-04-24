@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web 2 - DataVis Wrap-up</title>
+	<meta name="viewport" content="width=1024">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="src/deck.js/core/deck.core.css" type="text/css">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="src/deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="src/deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="src/css/prettify.css">
+	<link rel="stylesheet" href="src/css/deck.coder.css">
+	
+
+	<!-- Theme -->
+	<link rel="stylesheet" id='style-theme-link' href="src/css/coderdeck.css" type="text/css" >
+
+	<link rel="stylesheet" href="src/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="src/codemirror/theme/default.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+
+	<script src='src/jquery.min.js'></script>
+	<script src="src/modernizr.js"></script>
+</head>
+<body class="deck-container">
+	<script type='text/coderdeck' id='coderdeck-default'>
+	  <html>
+	    <head>
+	      <script src='src/jquery.min.js'>SCRIPTEND
+	    </head>
+	    <body>
+		    CODE
+	    </body>
+	</html>
+	</script>
+
+	<script type='text/coderdeck' id='coderdeck-plain'>
+		<html>
+			<title>test</title>
+			<link rel="stylesheet" href="reset.css">
+			<body>
+				CODE
+			</body>
+		</html>
+	</script>
+
+
+<article class='slide slide-subhead'>
+  <h1>Data Visualization Wrap-up</h1>
+
+<p>
+<a href='http://cykod.github.com/Web2Spring2013/12.html'>http://cykod.github.com/Web2Spring2013/12.html</a>
+</p>
+</article>
+
+<article class='slide slide-list'>
+<h1>Order of Business</h1>
+	<ol>
+		<li class="slide">
+    <h3>Review Homework</h3>
+		</li>
+		<li class="slide">
+    <h3>Data Vis Recap</h3>
+		</li>
+		<li class="slide">
+    <h3>Heatmaps</h3>
+		</li>
+		<li class="slide">
+      <h3>Homework</h3>
+		</li>
+	</ol>
+</article>
+
+<article class='slide slide-list'>
+<h2>Data Vis Recap</h2>
+<ul>
+	<li>
+  <h3>1D Visualization: <a href='BarChart/index.html'>Bar Chart</a></h3>
+	</li>
+	<li>
+  <h3>2D Visualization: <a href='BarChart/crimelist.html'>Scatter Plot</a></h3>
+	</li>
+	<li class='slide'>
+  <h3>Last Topic Remaining: Map Visualization</a></h3>
+	</li>
+	<li class='slide'>
+  <h3>And: making it interactive</a></h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Adding a Map</h2>
+<p>For future projects - generate your own "Browser Key" at <a href='https://code.google.com/apis/console'>https://code.google.com/apis/console</a> -  <a href='https://developers.google.com/maps/documentation/javascript/tutorial'>Google Maps Documentation</a></p>
+
+<textarea class='coder-editor'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHC2Gks7HDPLANSRptlNGPJfGB8KhT778&sensor=false"></script>
+  <script>
+    $(function() {
+      var mapOptions = {
+      center: new google.maps.LatLng(42.3583,-71.0603 ),
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP // ROADMAP, SATELLITE, HYBRID, TERRAIN
+      };
+      var map = new google.maps.Map($("#map-canvas")[0],mapOptions);
+    });
+  </script>
+
+  <style> #map-canvas { height:500px; } </style>
+
+  <div id="map-canvas"></div>
+</textarea>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Adding a Marker to a Map</h2>
+<p>Geocoding (address to lat/lng): <a href='http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=621%20Huntington%20Ave,%20Boston,%20MA%2002115'>Geocoding Hack</a></p>
+
+<textarea class='coder-editor'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHC2Gks7HDPLANSRptlNGPJfGB8KhT778&sensor=false"></script>
+  <script>
+    $(function() {
+      var mapOptions = {
+      center: new google.maps.LatLng(42.3583,-71.0603 ),
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP // ROADMAP, SATELLITE, HYBRID, TERRAIN
+      };
+      var myMap = new google.maps.Map($("#map-canvas")[0],mapOptions);
+
+      // Add in a marker:
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(42.3374359, -71.09915480000001),
+        title: "MassArt",
+        map: myMap
+      });
+
+    });
+  </script>
+
+  <style> #map-canvas { height:500px; } </style>
+
+  <div id="map-canvas"></div>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h1>Exercise 1 - create a pothole map</h1>
+<ul>
+	<li>
+  <h3>Download the <a href='pothole.js'>pothole.js</a> file</h3>
+	</li>
+	<li>
+  <h3>Create an HTML file that loads jQuery and Goole maps script tags</h3>
+	</li>
+	<li>
+  <h3>Create a map with a marker at every pothole (remember your loop logic)</h3>
+	</li>
+</ul>
+</article>
+
+
+<article class='slide slide-list'>
+<h2>Heat Maps</h2>
+<p><a href='https://developers.google.com/maps/documentation/javascript/layers#JSHeatMaps'>Heat Map Documentation</a> - Don't gorget to add "&libraries=visualization" to your Google Maps URL</p>
+
+<textarea class='coder-editor'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHC2Gks7HDPLANSRptlNGPJfGB8KhT778&sensor=false&libraries=visualization"></script>
+  <script>
+    $(function() {
+      var mapOptions = {
+      center: new google.maps.LatLng(42.3583,-71.0603 ),
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var myMap = new google.maps.Map($("#map-canvas")[0],mapOptions);
+
+      var myData= [
+        {"LATITUDE":"42.35053","LONGITUDE":"-71.0739"},
+        {"LATITUDE":"42.35053","LONGITUDE":"-71.0739"},
+        {"LATITUDE":"42.35061","LONGITUDE":"-71.07967"},
+        {"LATITUDE":"42.35071","LONGITUDE":"-71.07316"},
+        {"LATITUDE":"42.35087","LONGITUDE":"-71.07863"},
+        {"LATITUDE":"42.351057","LONGITUDE":"-71.08988"}
+      ]
+
+      var myHeatmapData = [];
+
+      var i =0;
+      while(i < myData.length) {
+        var row = myData[i];
+
+        myHeatmapData.push(
+          new google.maps.LatLng(row.LATITUDE,row.LONGITUDE)  
+        )
+  
+        i++;      
+      }
+
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: myHeatmapData,
+        // radius: 30
+      });
+      heatmap.setMap(myMap);
+
+    });
+  </script>
+
+  <style> #map-canvas { height:500px; } </style>
+
+  <div id="map-canvas"></div>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+<h1>Exercise 2 - turn markers into a heatmap</h1>
+<ul>
+	<li>
+  <h3>Use the potholes data and create a heatmap of backbay potholes</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+  <h2>Fusion Tables</h2>
+  <p><a href='https://developers.google.com/maps/documentation/javascript/layers#JSHeatMaps'>Documentation</a>
+  - <a href='https://www.google.com/fusiontables/DataSource?dsrcid=308519#map:id=3'>Available Markers</a> - </p>
+
+<textarea class='coder-editor'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHC2Gks7HDPLANSRptlNGPJfGB8KhT778&sensor=false&libraries=visualization"></script>
+  <script>
+    $(function() {
+      var mapOptions = {
+        center: new google.maps.LatLng(42.3583,-71.0603 ),
+        zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var myMap = new google.maps.Map($("#map-canvas")[0],mapOptions);
+
+      var layer = new google.maps.FusionTablesLayer({
+        query: {
+          select: 'LATITUDE',
+          from: '1wkcMKkhEWNRLS8QByQtDPoq46ZumT39-cMUirow'
+        },
+        styles: [
+          {
+            markerOptions: {
+              iconName: "small_green"
+            },
+          },
+          {
+            where: "CASE_STATUS = 'Closed'",
+            markerOptions: {
+              iconName: "small_red"
+            }
+          }
+        ],
+        heatmap: {
+         // enabled: true
+        }
+      });
+      layer.setMap(myMap);
+
+    });
+  </script>
+
+  <style> #map-canvas { height:500px; } </style>
+
+  <div id="map-canvas"></div>
+</textarea>
+</article>
+
+<article class='slide slide-list'>
+  <h1>Exercise 3 - all potholes from a fusion table</h1>
+<ul>
+	<li>
+  <h3>Download <a href='spothole-all.csv'>spothole-all.csv</a> (or generate your own)</h3>
+	</li>
+	<li>
+  <h3>Create a new fusion table at <a href='https://www.google.com/fusiontables'>https://www.google.com/fusiontables</a></h3>
+	</li>
+	<li>
+  <h3>Make sure "LATITUDE" is a two-field location field</h3>
+	</li>
+	<li>
+  <h3>Share it to Anyone who has a link</h3>
+	</li>
+	<li>
+  <h3>Figure out some interesting data to show</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-list'>
+<h1>Making it interactive</h1>
+<ul>
+	<li class='slide'>
+  <h3>Dependant on what you are trying to show</h3>
+	</li>
+	<li class='slide'>
+  <h3>Most common: UI to change orderings or show / hide data</h3>
+	</li>
+	<li class='slide'>
+  <h3>How: create a function that gets called to regenerate your view</h3>
+	</li>
+</ul>
+</article>
+
+<article class='slide slide-homework'>
+<h2>Homework</h2>
+	
+	<h3 class='slide'>Final Data Vis Project</h3>
+       <ul class='slide'>
+			<li>
+      <h3>Work on your final project!</h3>
+      </li>
+		</ul>
+</ul>	
+</article>
+
+<!-- Update these paths to point to the correct files. -->
+<script src="src/jquery.tmpl.min.js"></script>
+<script src="src/deck.js/core/deck.core.js"></script>
+
+<!-- Code Mirror -->
+<script src="src/codemirror/lib/codemirror.js"></script>
+<script src="src/codemirror/mode/xml/xml.js"></script>
+<script src="src/codemirror/mode/css/css.js"></script>
+<script src="src/codemirror/mode/javascript/javascript.js"></script>
+<script src="src/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Prettify -->
+<script src="src/prettify.js"></script>
+
+<!-- Deck Core and extensions -->
+<script src="src/deck.js/extensions/status/deck.status.js"></script>
+<script src="src/deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src='src/deck.coder.js'></script>
+<script src="src/deck.js/extensions/hash/deck.hash.js"></script>
+<script src="src/deck.js/extensions/menu/deck.menu.js"></script>
+
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
